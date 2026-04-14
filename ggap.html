@@ -79,27 +79,21 @@
 <body>
 <!-- NAV -->
 <nav class="nav" id="nav"><div class="nav__inner">
-  <a class="nav__brand" href="agrix-index.html">
-    <div class="nav__icon nav__icon--ax">
-      <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <line x1="10" y1="50" x2="32" y2="10" stroke="#c8a84b" stroke-width="6.5" stroke-linecap="round"/>
-        <line x1="32" y1="10" x2="44" y2="50" stroke="#c8a84b" stroke-width="6.5" stroke-linecap="round"/>
-        <line x1="19" y1="34" x2="38" y2="34" stroke="#c8a84b" stroke-width="4.5" stroke-linecap="round"/>
-        <rect x="42" y="8" width="6" height="46" fill="#1e2d14"/>
-        <line x1="49" y1="10" x2="62" y2="50" stroke="#5ea135" stroke-width="6.5" stroke-linecap="round"/>
-        <line x1="62" y1="10" x2="49" y2="50" stroke="#5ea135" stroke-width="5" stroke-linecap="round"/>
-      </svg>
-    </div>
-    <span class="nav__wordmark">Agri<span class="green">X</span></span>
+  <a class="nav__brand nav__brand--logo" href="agrix-index.html" aria-label="AgriX početna">
+    <img src="img/AgriX-Logo-Final_Novi.png" alt="AgriX" class="nav__logo">
   </a>
-  <ul class="nav__links">
+  <ul class="nav__links" id="navLinks">
     <li><a href="otkup.html">Otkup</a></li>
     <li><a href="gazdinstvo.html">Gazdinstvo</a></li>
     <li><a class="active" href="ggap.html">GGAP</a></li>
     <li><a href="o-nama.html">O nama</a></li>
     <li><a href="#kontakt" class="nav__cta">Kontakt</a></li>
   </ul>
-  <button class="nav__mobile" aria-label="Meni"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button>
+  <button class="nav__mobile" id="navToggle" aria-label="Meni" aria-expanded="false" aria-controls="navLinks">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <path d="M4 6h16M4 12h16M4 18h16"/>
+    </svg>
+  </button>
 </div></nav>
 
 <!-- HERO -->
