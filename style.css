@@ -703,3 +703,43 @@ body::before { content: ''; position: fixed; inset: 0; z-index: 0; pointer-event
     padding: 0.9rem 1rem !important;
   }
 }
+
+.cta-final__phone {
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.cta-final__phone-label {
+  font-size: 0.76rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+.cta-final__phone-link {
+  font-size: 1.08rem;
+  font-weight: 700;
+  color: var(--forest);
+  text-decoration: none;
+  transition: color 0.2s, transform 0.2s;
+}
+
+.cta-final__phone-link:hover {
+  color: var(--accent);
+  transform: translateY(-1px);
+}
+
+@media (max-width: 768px) {
+  .cta-final__phone {
+    margin-top: 1.25rem;
+  }
+
+  .cta-final__phone-link {
+    font-size: 1rem;
+  }
+}
