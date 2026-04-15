@@ -840,3 +840,202 @@ body::before { content: ''; position: fixed; inset: 0; z-index: 0; pointer-event
   }
 }
 
+/* ══════════════════════════════════════════
+   COMPARISON BLOCK
+   ══════════════════════════════════════════ */
+
+.accent {
+  color: var(--accent);
+}
+
+.comparison-block {
+  margin-top: 2.5rem;
+}
+
+.comparison-block__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.comparison-block__card {
+  border-radius: 20px;
+  padding: 2rem 1.6rem;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-md);
+}
+
+.comparison-block__card--old {
+  background: linear-gradient(180deg, rgba(255,255,255,0.96), rgba(241,236,227,0.88));
+}
+
+.comparison-block__card--new {
+  background: linear-gradient(180deg, rgba(30,45,20,0.98), rgba(20,31,13,0.96));
+  border-color: rgba(94,161,53,0.22);
+}
+
+.comparison-block__header {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  margin-bottom: 1.35rem;
+}
+
+.comparison-block__icon {
+  width: 1.6rem;
+  height: 1.6rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  font-size: 0.88rem;
+  font-weight: 700;
+}
+
+.comparison-block__card--old .comparison-block__icon {
+  background: rgba(196,91,74,0.12);
+  color: #b35244;
+}
+
+.comparison-block__card--new .comparison-block__icon {
+  background: rgba(94,161,53,0.16);
+  color: var(--accent);
+}
+
+.comparison-block__label {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.comparison-block__label--old {
+  color: var(--text-muted);
+}
+
+.comparison-block__label--new {
+  color: var(--accent);
+}
+
+.comparison-block__list {
+  list-style: none;
+  display: grid;
+  gap: 0.9rem;
+  margin: 0;
+  padding: 0;
+}
+
+.comparison-block__list li {
+  position: relative;
+  padding-left: 1.1rem;
+  line-height: 1.7;
+  font-size: 0.96rem;
+}
+
+.comparison-block__list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.72rem;
+  width: 0.35rem;
+  height: 0.35rem;
+  border-radius: 999px;
+}
+
+.comparison-block__card--old .comparison-block__list li {
+  color: var(--text-secondary);
+}
+
+.comparison-block__card--old .comparison-block__list li::before {
+  background: rgba(196,91,74,0.55);
+}
+
+.comparison-block__card--new .comparison-block__list li {
+  color: rgba(240,232,208,0.9);
+}
+
+.comparison-block__card--new .comparison-block__list li::before {
+  background: var(--accent);
+}
+
+.comparison-block__numbers {
+  margin-top: 2.25rem;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  border-top: 1px solid var(--border);
+}
+
+.comparison-block__number {
+  padding: 1.4rem 1rem 0 0;
+  position: relative;
+}
+
+.comparison-block__number:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  top: 1.4rem;
+  right: 0;
+  bottom: 0;
+  width: 1px;
+  background: var(--border);
+}
+
+.comparison-block__number strong {
+  display: block;
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1;
+  color: var(--gold);
+  margin-bottom: 0.45rem;
+}
+
+.comparison-block__number span {
+  display: block;
+  max-width: 180px;
+  font-size: 0.8rem;
+  line-height: 1.6;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+@media (max-width: 900px) {
+  .comparison-block__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .comparison-block__numbers {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem 0;
+  }
+
+  .comparison-block__number:nth-child(2)::after {
+    display: none;
+  }
+
+  .comparison-block__number:nth-child(3),
+  .comparison-block__number:nth-child(4) {
+    border-top: 1px solid var(--border);
+    padding-top: 1.2rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .comparison-block__numbers {
+    grid-template-columns: 1fr;
+  }
+
+  .comparison-block__number {
+    padding: 1rem 0;
+    border-top: 1px solid var(--border);
+  }
+
+  .comparison-block__number::after {
+    display: none !important;
+  }
+
+  .comparison-block__number span {
+    max-width: none;
+  }
+}
