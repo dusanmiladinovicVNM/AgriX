@@ -1,1 +1,202 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Politika privatnosti — AgriX</title>
+<style>
+  :root {
+    --forest: #1E2D14;
+    --accent: #5EA135;
+    --gold: #C8A84B;
+    --cream: #F0E8D0;
+    --night: #0D1008;
+    --bg: #FAFAF8;
+    --card: #FFFFFF;
+    --border: #E8E4DC;
+    --text: #2A2A28;
+    --text-mid: #5A5A56;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    font-size: 16px;
+  }
+  .legal-container {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 60px 24px 80px;
+  }
+  .legal-badge {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 12px;
+  }
+  h1 {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--forest);
+    margin-bottom: 8px;
+    line-height: 1.3;
+  }
+  .legal-date {
+    font-size: 14px;
+    color: var(--text-mid);
+    margin-bottom: 40px;
+  }
+  h2 {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--forest);
+    margin-top: 36px;
+    margin-bottom: 12px;
+  }
+  h3 {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--night);
+    margin-top: 20px;
+    margin-bottom: 8px;
+  }
+  p {
+    margin-bottom: 10px;
+    color: var(--text);
+  }
+  ul {
+    margin: 8px 0 16px 24px;
+    list-style: none;
+  }
+  ul li {
+    position: relative;
+    padding-left: 16px;
+    margin-bottom: 6px;
+  }
+  ul li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 10px;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--accent);
+  }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .placeholder {
+    background: #FFF3CD;
+    color: #856404;
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-weight: 600;
+    font-size: 14px;
+  }
+  .legal-divider {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 40px 0;
+  }
+  .legal-footer {
+    margin-top: 48px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border);
+    font-size: 14px;
+    color: var(--text-mid);
+  }
+</style>
+</head>
+<body>
 
+<div class="legal-container">
+
+<div class="legal-badge">AgriX Platforma</div>
+<h1>Politika privatnosti</h1>
+<p class="legal-date">Datum poslednje izmene: <span class="placeholder">[DATUM]</span></p>
+
+<h2>1. Ko je rukovalac podataka</h2>
+<p>Rukovalac podataka o ličnosti je <span class="placeholder">[IME I PREZIME PREDUZETNIKA]</span>, preduzetnik, sa sedištem u <span class="placeholder">[ADRESA SEDIŠTA]</span>, PIB: <span class="placeholder">[PIB]</span>, matični broj: <span class="placeholder">[MATIČNI BROJ]</span> (u daljem tekstu: „AgriX", „mi" ili „naš").</p>
+<p>Za sva pitanja u vezi sa zaštitom podataka možete nas kontaktirati na: <a href="mailto:office@agrix.rs">office@agrix.rs</a></p>
+
+<h2>2. Koje podatke prikupljamo</h2>
+
+<h3>2.1 Podaci koje vi direktno unosite</h3>
+<p>Prilikom registracije i korišćenja AgriX platforme prikupljamo sledeće podatke:</p>
+<ul>
+  <li>Ime i prezime, naziv firme, email adresa, broj telefona (pri registraciji ili kontaktu)</li>
+  <li>Podaci o kooperantima: ime, prezime, kontakt, parcele, površine, kulture</li>
+  <li>Podaci o otkupu: količine, cene, dokumenti, fakture, saldo</li>
+  <li>Podaci o proizvodnji: tretmani, agrohemija, lager, troškovi</li>
+</ul>
+
+<h3>2.2 Podaci koji se automatski prikupljaju</h3>
+<p>Prilikom posete sajtu agrix.rs automatski prikupljamo:</p>
+<ul>
+  <li>IP adresu, tip pretraživača, operativni sistem, rezoluciju ekrana</li>
+  <li>Stranice koje ste posetili, vreme posete i trajanje</li>
+  <li>Ove podatke prikupljamo putem Google Analytics servisa (više u <a href="kolacici.html">Politici kolačića</a>)</li>
+</ul>
+
+<h2>3. Zašto i po kom osnovu obrađujemo podatke</h2>
+<p>Vaše podatke obrađujemo na osnovu:</p>
+<ul>
+  <li><strong>Izvršenja ugovora</strong> — kada koristite AgriX platformu, obrada podataka je neophodna za pružanje usluge</li>
+  <li><strong>Legitimnog interesa</strong> — za poboljšanje rada platforme, analitiku sajta i sprečavanje zloupotreba</li>
+  <li><strong>Pristanka</strong> — za slanje obaveštenja i marketinških poruka (možete povući pristanak u svakom trenutku)</li>
+</ul>
+
+<h2>4. Gde se čuvaju podaci</h2>
+<p>Podaci se čuvaju na Google Cloud infrastrukturi (Google Apps Script / Google Sheets). Serveri se nalaze u Evropskoj uniji i Sjedinjenim Američkim Državama. Google je sertifikovan po EU-US Data Privacy Framework-u, što obezbeđuje adekvatan nivo zaštite u skladu sa važećim propisima.</p>
+
+<h2>5. Koliko dugo čuvamo podatke</h2>
+<ul>
+  <li><strong>Podaci aktivnog naloga:</strong> dok koristite platformu</li>
+  <li><strong>Nakon otkazivanja naloga:</strong> brišemo podatke u roku od 90 dana, osim podataka koje smo zakonski dužni da čuvamo (računovodstvena dokumentacija: 5 godina)</li>
+  <li><strong>Podaci sa sajta (analitika):</strong> čuvaju se u skladu sa podešavanjima Google Analytics-a (26 meseci)</li>
+</ul>
+
+<h2>6. Vaša prava</h2>
+<p>U skladu sa Zakonom o zaštiti podataka o ličnosti Republike Srbije, imate pravo da:</p>
+<ul>
+  <li>Zatražite pristup podacima koje o vama čuvamo</li>
+  <li>Zatražite ispravku netačnih podataka</li>
+  <li>Zatražite brisanje podataka (pravo na zaborav)</li>
+  <li>Ograničite ili se usprotivite obradi</li>
+  <li>Zatražite prenos podataka drugom rukovaocu</li>
+  <li>Povučete pristanak u svakom trenutku</li>
+</ul>
+<p>Zahtev možete podneti na: <a href="mailto:office@agrix.rs">office@agrix.rs</a>. Odgovorićemo u roku od 30 dana.</p>
+<p>Imate pravo da podnesete pritužbu Povereniku za informacije od javnog značaja i zaštitu podataka o ličnosti (<a href="https://www.poverenik.rs" target="_blank">www.poverenik.rs</a>).</p>
+
+<h2>7. Kome delimo podatke</h2>
+<p>Vaše podatke ne prodajemo i ne ustupamo trećim licima u marketinške svrhe. Podatke delimo isključivo sa:</p>
+<ul>
+  <li><strong>Google LLC</strong> — kao pružalac infrastrukture (hosting podataka)</li>
+  <li><strong>Google Analytics</strong> — za analitiku poseta sajtu (anonimizovani podaci)</li>
+  <li><strong>Nadležni organi</strong> — kada smo zakonski obavezni</li>
+</ul>
+
+<h2>8. Bezbednost podataka</h2>
+<ul>
+  <li>HTTPS enkripcija pri prenosu podataka</li>
+  <li>Pristup podacima ograničen na ovlašćene korisnike</li>
+  <li>Google Cloud bezbednosni standardi (SOC 2, ISO 27001)</li>
+</ul>
+
+<h2>9. Izmene politike privatnosti</h2>
+<p>Zadržavamo pravo da izmenimo ovu Politiku privatnosti. O svim bitnim izmenama obavestićemo vas putem email-a ili obaveštenja u aplikaciji. Nastavkom korišćenja platforme nakon objave izmena smatramo da ste saglasni sa izmenjenom politikom.</p>
+
+<div class="legal-footer">
+  <p>AgriX — Digitalna infrastruktura za savremenu poljoprivredu</p>
+  <p><a href="mailto:info@agrix.rs">info@agrix.rs</a> · <a href="https://www.agrix.rs">www.agrix.rs</a></p>
+</div>
+
+</div>
+</body>
+</html>
