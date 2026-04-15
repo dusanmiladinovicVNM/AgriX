@@ -1,94 +1,277 @@
 <!DOCTYPE html>
 <html lang="sr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Politika kolačića — AgriX</title>
-<style>
-  :root {
-    --forest: #1E2D14;
-    --accent: #5EA135;
-    --gold: #C8A84B;
-    --night: #0D1008;
-    --bg: #FAFAF8;
-    --border: #E8E4DC;
-    --text: #2A2A28;
-    --text-mid: #5A5A56;
-  }
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  body {
-    font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
-    background: var(--bg);
-    color: var(--text);
-    line-height: 1.7;
-    font-size: 16px;
-  }
-  .legal-container { max-width: 720px; margin: 0 auto; padding: 60px 24px 80px; }
-  .legal-badge { display: inline-block; font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); margin-bottom: 12px; }
-  h1 { font-size: 28px; font-weight: 700; color: var(--forest); margin-bottom: 8px; line-height: 1.3; }
-  .legal-date { font-size: 14px; color: var(--text-mid); margin-bottom: 40px; }
-  h2 { font-size: 18px; font-weight: 700; color: var(--forest); margin-top: 36px; margin-bottom: 12px; }
-  h3 { font-size: 16px; font-weight: 600; color: var(--night); margin-top: 20px; margin-bottom: 8px; }
-  p { margin-bottom: 10px; }
-  ul { margin: 8px 0 16px 24px; list-style: none; }
-  ul li { position: relative; padding-left: 16px; margin-bottom: 6px; }
-  ul li::before { content: ''; position: absolute; left: 0; top: 10px; width: 5px; height: 5px; border-radius: 50%; background: var(--accent); }
-  a { color: var(--accent); text-decoration: none; }
-  a:hover { text-decoration: underline; }
-  .placeholder { background: #FFF3CD; color: #856404; padding: 2px 6px; border-radius: 3px; font-weight: 600; font-size: 14px; }
-  table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 14px; }
-  th { background: var(--forest); color: #fff; text-align: left; padding: 10px 14px; font-weight: 600; }
-  td { padding: 10px 14px; border-bottom: 1px solid var(--border); }
-  tr:nth-child(even) td { background: #F5F5F2; }
-  .legal-footer { margin-top: 48px; padding-top: 24px; border-top: 1px solid var(--border); font-size: 14px; color: var(--text-mid); }
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AgriX — Politika kolačića</title>
+  <meta name="description" content="Politika kolačića za AgriX platformu. Informacije o neophodnim i analitičkim kolačićima, upravljanju kolačićima i kontakt podacima.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    .legal-page {
+      padding: calc(72px + 3rem) 0 5rem;
+    }
+
+    .legal-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      box-shadow: var(--shadow-md);
+      padding: 2.5rem 2rem;
+    }
+
+    .legal-date {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-bottom: 2rem;
+    }
+
+    .legal-body h2 {
+      font-family: var(--font-display);
+      font-size: 1.7rem;
+      line-height: 1.2;
+      color: var(--forest);
+      margin: 2.2rem 0 0.8rem;
+    }
+
+    .legal-body h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--forest);
+      margin: 1.5rem 0 0.5rem;
+    }
+
+    .legal-body p {
+      font-size: 1rem;
+      line-height: 1.8;
+      color: var(--text-secondary);
+      margin-bottom: 0.9rem;
+    }
+
+    .legal-body ul {
+      margin: 0.5rem 0 1.2rem 1.2rem;
+      color: var(--text-secondary);
+    }
+
+    .legal-body li {
+      margin-bottom: 0.45rem;
+      line-height: 1.75;
+    }
+
+    .legal-body a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .legal-body a:hover {
+      text-decoration: underline;
+    }
+
+    .legal-placeholder {
+      display: inline-block;
+      padding: 0.15rem 0.45rem;
+      border-radius: 6px;
+      background: var(--gold-pale);
+      color: var(--forest);
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+
+    .legal-table-wrap {
+      overflow-x: auto;
+      margin: 1rem 0 1.5rem;
+    }
+
+    .legal-table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 520px;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .legal-table th {
+      background: var(--forest);
+      color: var(--cream);
+      text-align: left;
+      padding: 0.9rem 1rem;
+      font-size: 0.88rem;
+      font-weight: 600;
+    }
+
+    .legal-table td {
+      padding: 0.9rem 1rem;
+      border-top: 1px solid var(--border);
+      font-size: 0.92rem;
+      color: var(--text-secondary);
+      vertical-align: top;
+    }
+
+    .legal-footer-note {
+      margin-top: 2.5rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid var(--border);
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    @media (max-width: 768px) {
+      .legal-card {
+        padding: 2rem 1.25rem;
+        border-radius: 14px;
+      }
+
+      .legal-body h2 {
+        font-size: 1.45rem;
+      }
+    }
+  </style>
 </head>
 <body>
 
-<div class="legal-container">
+  <nav class="nav" id="nav">
+    <div class="nav__inner">
+      <a class="nav__brand nav__brand--logo" href="agrix-index.html" aria-label="AgriX početna">
+        <img src="AgriX-Logo-Final.png" alt="AgriX" class="nav__logo">
+      </a>
+      <ul class="nav__links" id="navLinks">
+        <li><a href="otkup.html">Otkup</a></li>
+        <li><a href="gazdinstvo.html">Gazdinstvo</a></li>
+        <li><a href="ggap.html">GGAP</a></li>
+        <li><a href="o-nama.html">O nama</a></li>
+        <li><a href="agrix-index.html#kontakt" class="nav__cta">Kontakt</a></li>
+      </ul>
+      <button class="nav__mobile" id="navToggle" aria-label="Meni" aria-expanded="false" aria-controls="navLinks">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+    </div>
+  </nav>
 
-<div class="legal-badge">AgriX Platforma</div>
-<h1>Politika kolačića (cookies)</h1>
-<p class="legal-date">Datum poslednje izmene: <span class="placeholder">[DATUM]</span></p>
+  <main class="legal-page">
+    <section class="section">
+      <div class="container--narrow">
+        <div class="legal-card">
+          <div class="section__label">AgriX Platforma</div>
+          <h1 class="section__title">Politika kolačića (cookies)</h1>
+          <p class="legal-date">Datum poslednje izmene: <span class="legal-placeholder">[DATUM]</span></p>
 
-<h2>1. Šta su kolačići</h2>
-<p>Kolačići (cookies) su mali tekstualni fajlovi koje internet sajt postavlja na vaš uređaj (računar, telefon, tablet) kada ga posetite. Koriste se da sajt zapamti vaša podešavanja i da analizira kako se sajt koristi.</p>
+          <div class="legal-body">
+            <h2>1. Šta su kolačići</h2>
+            <p>Kolačići (cookies) su mali tekstualni fajlovi koje internet sajt postavlja na vaš uređaj (računar, telefon, tablet) kada ga posetite. Koriste se da sajt zapamti vaša podešavanja i da analizira kako se sajt koristi.</p>
 
-<h2>2. Koje kolačiće koristimo</h2>
+            <h2>2. Koje kolačiće koristimo</h2>
 
-<h3>2.1 Neophodni kolačići</h3>
-<p>Ovi kolačići su potrebni da sajt pravilno funkcioniše. Ne prikupljaju lične podatke i ne mogu se isključiti.</p>
+            <h3>2.1 Neophodni kolačići</h3>
+            <p>Ovi kolačići su potrebni da sajt pravilno funkcioniše. Ne prikupljaju lične podatke i ne mogu se isključiti.</p>
 
-<table>
-  <tr><th>Kolačić</th><th>Svrha</th><th>Trajanje</th></tr>
-  <tr><td>session</td><td>Čuva stanje sesije dok koristite sajt</td><td>Do zatvaranja pretraživača</td></tr>
-  <tr><td>cookie_consent</td><td>Pamti vaš izbor o kolačićima</td><td>12 meseci</td></tr>
-</table>
+            <div class="legal-table-wrap">
+              <table class="legal-table">
+                <tr>
+                  <th>Kolačić</th>
+                  <th>Svrha</th>
+                  <th>Trajanje</th>
+                </tr>
+                <tr>
+                  <td>session</td>
+                  <td>Čuva stanje sesije dok koristite sajt</td>
+                  <td>Do zatvaranja pretraživača</td>
+                </tr>
+                <tr>
+                  <td>cookie_consent</td>
+                  <td>Pamti vaš izbor o kolačićima</td>
+                  <td>12 meseci</td>
+                </tr>
+              </table>
+            </div>
 
-<h3>2.2 Analitički kolačići (Google Analytics)</h3>
-<p>Koristimo Google Analytics (GA4) za analizu poseta sajtu. Ovi kolačići prikupljaju anonimizovane podatke o tome kako koristite sajt:</p>
+            <h3>2.2 Analitički kolačići (Google Analytics)</h3>
+            <p>Koristimo Google Analytics (GA4) za analizu poseta sajtu. Ovi kolačići prikupljaju anonimizovane podatke o tome kako koristite sajt.</p>
 
-<table>
-  <tr><th>Kolačić</th><th>Svrha</th><th>Trajanje</th></tr>
-  <tr><td>_ga</td><td>Razlikuje korisnike</td><td>2 godine</td></tr>
-  <tr><td>_ga_[ID]</td><td>Čuva stanje sesije</td><td>2 godine</td></tr>
-</table>
+            <div class="legal-table-wrap">
+              <table class="legal-table">
+                <tr>
+                  <th>Kolačić</th>
+                  <th>Svrha</th>
+                  <th>Trajanje</th>
+                </tr>
+                <tr>
+                  <td>_ga</td>
+                  <td>Razlikuje korisnike</td>
+                  <td>2 godine</td>
+                </tr>
+                <tr>
+                  <td>_ga_[ID]</td>
+                  <td>Čuva stanje sesije</td>
+                  <td>2 godine</td>
+                </tr>
+              </table>
+            </div>
 
-<p>IP adrese se anonimizuju pre slanja Google-u. Podaci se ne koriste za ličnu identifikaciju.</p>
+            <p>IP adrese se anonimizuju pre slanja Google-u. Podaci se ne koriste za ličnu identifikaciju.</p>
 
-<h2>3. Kako upravljate kolačićima</h2>
-<p>Prilikom prve posete sajtu prikazujemo vam baner sa mogućnošću da prihvatite ili odbijete analitičke kolačiće.</p>
-<p>Možete i naknadno upravljati kolačićima kroz podešavanja vašeg pretraživača. Napomena: isključivanje kolačića može uticati na funkcionalnost pojedinih delova sajta.</p>
+            <h2>3. Kako upravljate kolačićima</h2>
+            <p>Prilikom prve posete sajtu prikazujemo vam baner sa mogućnošću da prihvatite ili odbijete analitičke kolačiće.</p>
+            <p>Možete i naknadno upravljati kolačićima kroz podešavanja vašeg pretraživača. Isključivanje kolačića može uticati na funkcionalnost pojedinih delova sajta.</p>
 
-<h2>4. Više informacija</h2>
-<p>Za više informacija o kolačićima posetite: <a href="https://www.aboutcookies.org" target="_blank">www.aboutcookies.org</a></p>
-<p>Za pitanja u vezi sa kolačićima na našem sajtu: <a href="mailto:office@agrix.rs">office@agrix.rs</a></p>
+            <h2>4. Više informacija</h2>
+            <p>Za više informacija o kolačićima posetite: <a href="https://www.aboutcookies.org" target="_blank" rel="noopener noreferrer">www.aboutcookies.org</a></p>
+            <p>Za pitanja u vezi sa kolačićima na našem sajtu: <a href="mailto:office@agrix.rs">office@agrix.rs</a></p>
 
-<div class="legal-footer">
-  <p>AgriX — Digitalna infrastruktura za savremenu poljoprivredu</p>
-  <p><a href="mailto:info@agrix.rs">info@agrix.rs</a> · <a href="https://www.agrix.rs">www.agrix.rs</a></p>
-</div>
+            <div class="legal-footer-note">
+              <p>AgriX — Digitalna infrastruktura za savremenu poljoprivredu</p>
+              <p><a href="mailto:info@agrix.rs">info@agrix.rs</a> · <a href="https://www.agrix.rs">www.agrix.rs</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
 
-</div>
+  <footer class="footer">
+    <div class="footer__inner">
+      <span class="footer__brand">Agri<span class="green">X</span></span>
+      <p>© 2026 · Digitalna infrastruktura za savremenu poljoprivredu</p>
+      <p>AgriX Otkup · AgriX Gazdinstvo · AgriX GGAP</p>
+    </div>
+  </footer>
+
+  <script>
+    const nav = document.getElementById('nav');
+    const navToggle = document.getElementById('navToggle');
+    const navLinks = document.getElementById('navLinks');
+
+    window.addEventListener('scroll', () => {
+      if (nav) nav.classList.toggle('scrolled', window.scrollY > 20);
+    }, { passive: true });
+
+    if (navToggle && navLinks) {
+      navToggle.addEventListener('click', () => {
+        const isOpen = navLinks.classList.toggle('open');
+        navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      });
+
+      navLinks.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          navLinks.classList.remove('open');
+          navToggle.setAttribute('aria-expanded', 'false');
+        });
+      });
+
+      document.addEventListener('click', (e) => {
+        if (nav && !nav.contains(e.target)) {
+          navLinks.classList.remove('open');
+          navToggle.setAttribute('aria-expanded', 'false');
+        }
+      });
+    }
+  </script>
+
 </body>
 </html>
