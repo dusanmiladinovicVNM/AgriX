@@ -961,7 +961,7 @@ body::before { content: ''; position: fixed; inset: 0; z-index: 0; pointer-event
 .comparison-block__numbers {
   margin-top: 2.25rem;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: 1.1fr 1.2fr 1fr 1.1fr;
   gap: 0;
   border-top: 1px solid var(--border);
 }
@@ -992,7 +992,7 @@ body::before { content: ''; position: fixed; inset: 0; z-index: 0; pointer-event
 
 .comparison-block__number span {
   display: block;
-  max-width: 180px;
+  max-width: 220px;
   font-size: 0.8rem;
   line-height: 1.6;
   letter-spacing: 0.04em;
