@@ -1,1 +1,338 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AgriX Gazdinstvo — Zaboravljena lozinka</title>
+  <meta name="description" content="Zatražite link za resetovanje lozinke za AgriX Gazdinstvo.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 
+  <style>
+    .auth-page {
+      min-height: 100vh;
+      padding: calc(72px + 3rem) 1.25rem 4rem;
+      background:
+        radial-gradient(circle at 20% 80%, rgba(94,161,53,0.07), transparent 26%),
+        radial-gradient(circle at 80% 20%, rgba(200,168,75,0.06), transparent 24%),
+        var(--bg);
+    }
+
+    .auth-wrap {
+      max-width: 1080px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .auth-copy .section__label {
+      margin-bottom: 1rem;
+    }
+
+    .auth-title {
+      max-width: 520px;
+      font-size: clamp(2.4rem, 5vw, 4rem);
+      line-height: 0.95;
+      color: var(--forest);
+      margin-bottom: 1rem;
+    }
+
+    .auth-desc {
+      max-width: 520px;
+      font-size: 1.05rem;
+      line-height: 1.8;
+      color: var(--text-secondary);
+      margin-bottom: 1.4rem;
+    }
+
+    .auth-points {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.7rem;
+    }
+
+    .auth-point {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.6rem 0.9rem;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.7);
+      font-size: 0.82rem;
+      color: var(--forest);
+      font-weight: 500;
+    }
+
+    .auth-card {
+      background: rgba(255,255,255,0.94);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      box-shadow: var(--shadow-lg);
+      padding: 2rem;
+    }
+
+    .auth-card h2 {
+      font-size: 1.45rem;
+      line-height: 1.15;
+      color: var(--forest);
+      margin-bottom: 0.35rem;
+    }
+
+    .auth-card__sub {
+      font-size: 0.95rem;
+      line-height: 1.7;
+      color: var(--text-secondary);
+      margin-bottom: 1.4rem;
+    }
+
+    .auth-form {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .auth-form .form-field {
+      display: grid;
+      gap: 0.45rem;
+    }
+
+    .auth-form .form-label {
+      font-size: 0.84rem;
+      font-weight: 600;
+      color: var(--forest);
+    }
+
+    .auth-form .form-input {
+      width: 100%;
+      padding: 0.95rem 1rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 12px;
+      background: var(--white);
+      font-size: 0.95rem;
+      color: var(--text);
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    .auth-form .form-input:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(94,161,53,0.12);
+    }
+
+    .auth-note {
+      font-size: 0.82rem;
+      line-height: 1.65;
+      color: var(--text-muted);
+      margin-top: 0.2rem;
+    }
+
+    .auth-actions {
+      margin-top: 0.25rem;
+      display: grid;
+      gap: 0.9rem;
+    }
+
+    .auth-actions .btn {
+      width: 100%;
+      justify-content: center;
+    }
+
+    .auth-bottom {
+      text-align: center;
+      font-size: 0.86rem;
+      color: var(--text-muted);
+    }
+
+    .auth-bottom a {
+      color: var(--forest);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .auth-bottom a:hover {
+      color: var(--accent);
+    }
+
+    .auth-success {
+      display: none;
+      margin-top: 1rem;
+      padding: 1rem 1.1rem;
+      border-radius: 14px;
+      background: rgba(94,161,53,0.1);
+      border: 1px solid rgba(94,161,53,0.2);
+      color: var(--forest);
+      font-size: 0.9rem;
+      line-height: 1.65;
+    }
+
+    .auth-success.show {
+      display: block;
+    }
+
+    @media (max-width: 960px) {
+      .auth-wrap {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+
+      .auth-copy {
+        text-align: center;
+      }
+
+      .auth-copy .section__label {
+        justify-content: center;
+      }
+
+      .auth-title,
+      .auth-desc {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .auth-points {
+        justify-content: center;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .auth-card {
+        padding: 1.4rem;
+        border-radius: 16px;
+      }
+
+      .auth-title {
+        font-size: clamp(2rem, 9vw, 3rem);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav" id="nav">
+    <div class="nav__inner">
+      <a class="nav__brand nav__brand--logo" href="agrix-index.html" aria-label="AgriX početna">
+        <img src="img/AgriX-Logo-Final_Novi.png" alt="AgriX" class="nav__logo">
+      </a>
+      <ul class="nav__links" id="navLinks">
+        <li><a href="otkup.html">Otkup</a></li>
+        <li><a href="gazdinstvo.html">Gazdinstvo</a></li>
+        <li><a href="ggap.html">GGAP</a></li>
+        <li><a href="o-nama.html">O nama</a></li>
+        <li><a href="index.html#kontakt" class="nav__cta">Kontakt</a></li>
+      </ul>
+      <button class="nav__mobile" id="navToggle" aria-label="Meni" aria-expanded="false" aria-controls="navLinks">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+    </div>
+  </nav>
+
+  <main class="auth-page">
+    <div class="auth-wrap">
+      <div class="auth-copy">
+        <div class="section__label">AgriX Gazdinstvo</div>
+        <h1 class="auth-title">Zaboravili ste lozinku?</h1>
+        <p class="auth-desc">Unesite email adresu povezanu sa vašim nalogom i poslaćemo vam link za resetovanje lozinke.</p>
+
+        <div class="auth-points">
+          <span class="auth-point">Brz oporavak pristupa</span>
+          <span class="auth-point">Bez podrške na poziv</span>
+          <span class="auth-point">Link stiže na email</span>
+        </div>
+      </div>
+
+      <div class="auth-card">
+        <h2>Resetujte lozinku</h2>
+        <p class="auth-card__sub">Pošaljite zahtev i proverite svoju email adresu za dalja uputstva.</p>
+
+        <form class="auth-form" id="resetForm">
+          <div class="form-field">
+            <label class="form-label" for="email">Email</label>
+            <input class="form-input" id="email" name="email" type="email" placeholder="petar@primer.rs" required>
+          </div>
+
+          <p class="auth-note">Ako postoji nalog vezan za ovu email adresu, dobićete poruku sa linkom za resetovanje lozinke.</p>
+
+          <div class="auth-actions">
+            <button type="submit" class="btn btn--primary">Pošaljite link za resetovanje <span class="btn__arrow">→</span></button>
+            <div class="auth-bottom">Setili ste se lozinke? <a href="prijava.html">Prijavite se</a></div>
+          </div>
+        </form>
+
+        <div class="auth-success" id="resetSuccess">
+          Zahtev je poslat. Proverite svoju email adresu i pratite uputstva za resetovanje lozinke.
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer__inner">
+      <div class="footer__brand-col">
+        <span class="footer__brand">Agri<span class="green">X</span></span>
+        <div class="footer__products">
+          <span>AgriX Otkup</span>
+          <span>AgriX Gazdinstvo</span>
+          <span>AgriX GGAP</span>
+        </div>
+      </div>
+
+      <div class="footer__meta">
+        © 2026 · Digitalna infrastruktura za savremenu poljoprivredu
+      </div>
+
+      <div class="footer__legal">
+        <a href="privatnost.html">Politika privatnosti</a>
+        <a href="cookies.html">Politika kolačića</a>
+        <a href="uslovi.html">Uslovi korišćenja</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const nav = document.getElementById('nav');
+    const navToggle = document.getElementById('navToggle');
+    const navLinks = document.getElementById('navLinks');
+
+    window.addEventListener('scroll', () => {
+      if (nav) nav.classList.toggle('scrolled', window.scrollY > 20);
+    }, { passive: true });
+
+    if (navToggle && navLinks) {
+      navToggle.addEventListener('click', () => {
+        const isOpen = navLinks.classList.toggle('open');
+        navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      });
+
+      navLinks.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          navLinks.classList.remove('open');
+          navToggle.setAttribute('aria-expanded', 'false');
+        });
+      });
+
+      document.addEventListener('click', (e) => {
+        if (nav && !nav.contains(e.target)) {
+          navLinks.classList.remove('open');
+          navToggle.setAttribute('aria-expanded', 'false');
+        }
+      });
+    }
+
+    const resetForm = document.getElementById('resetForm');
+    const resetSuccess = document.getElementById('resetSuccess');
+
+    if (resetForm) {
+      resetForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        resetSuccess.classList.add('show');
+        resetForm.style.display = 'none';
+      });
+    }
+  </script>
+</body>
+</html>
