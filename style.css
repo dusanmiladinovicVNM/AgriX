@@ -215,7 +215,9 @@ body::before { content: ''; position: fixed; inset: 0; z-index: 0; pointer-event
 .footer__legal {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: flex-end;
+  justify-self: end;
+  text-align: right;
   gap: 0.35rem;
 }
 
@@ -242,6 +244,11 @@ body::before { content: ''; position: fixed; inset: 0; z-index: 0; pointer-event
   .footer__brand-col,
   .footer__legal {
     align-items: center;
+  }
+
+  .footer__legal {
+    justify-self: center;
+    text-align: center;
   }
 
   .footer__meta {
