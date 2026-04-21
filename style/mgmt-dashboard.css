@@ -15,39 +15,122 @@
 }
 
 .homepage-dashboard-proof {
-  padding: 72px 0;
-  background: linear-gradient(180deg, #fafaf6 0%, #f5f5f0 100%);
+  padding: 80px 0;
+  background:
+    radial-gradient(circle at top center, rgba(26,94,42,0.05), transparent 42%),
+    linear-gradient(180deg, #fafaf6 0%, #f5f5f0 100%);
 }
 
-.homepage-dashboard-head {
-  max-width: 1200px;
-  margin: 0 auto 28px;
+.homepage-dashboard-shell {
+  max-width: 1240px;
+  margin: 0 auto;
   padding: 0 20px;
+}
+
+.homepage-dashboard-copy {
+  max-width: 840px;
+  margin: 0 auto 28px;
+  text-align: center;
+}
+
+.homepage-dashboard-overline {
+  margin-bottom: 10px;
+  font-size: 12px;
+  line-height: 1;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-weight: 800;
+  color: var(--primary);
 }
 
 .homepage-dashboard-title {
-  margin: 0 0 10px;
-  font-size: clamp(28px, 4vw, 42px);
-  line-height: 1.05;
+  margin: 0 0 14px;
+  font-size: clamp(30px, 4.2vw, 56px);
+  line-height: 1.02;
   color: var(--primary);
   font-weight: 800;
+  letter-spacing: -0.03em;
 }
 
 .homepage-dashboard-lead {
-  margin: 0;
-  max-width: 780px;
+  margin: 0 auto;
+  max-width: 860px;
   font-size: 18px;
-  line-height: 1.5;
+  line-height: 1.65;
   color: var(--text-muted);
 }
 
+.homepage-dashboard-stage {
+  display: grid;
+  gap: 18px;
+}
+
+.homepage-dashboard-mockup {
+  background: linear-gradient(180deg, rgba(255,255,255,0.92), rgba(255,255,255,0.86));
+  border: 1px solid rgba(26,94,42,0.12);
+  border-radius: 22px;
+  padding: 18px;
+  box-shadow:
+    0 30px 80px rgba(15,61,26,0.08),
+    0 8px 24px rgba(15,61,26,0.06);
+}
+
+.homepage-dashboard-callouts {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.homepage-dashboard-callout {
+  background: #fff;
+  border: 1px solid rgba(26,94,42,0.12);
+  border-radius: 16px;
+  padding: 14px 16px;
+  font-size: 14px;
+  line-height: 1.45;
+  font-weight: 700;
+  color: var(--text);
+  box-shadow: 0 8px 20px rgba(15,61,26,0.04);
+}
+
+.homepage-dashboard-strip {
+  padding: 18px 22px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  color: #fff;
+  text-align: center;
+  font-size: clamp(17px, 2vw, 22px);
+  line-height: 1.25;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.homepage-dashboard-actions {
+  display: flex;
+  justify-content: center;
+}
+
+.homepage-dashboard-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 54px;
+  padding: 0 24px;
+  border-radius: 999px;
+  background: var(--accent);
+  color: #1f1f1f;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 800;
+  box-shadow: 0 12px 26px rgba(232,168,56,0.28);
+}
+
 .homepage-dashboard-proof .mgmt-screen {
-  padding: 0 20px;
+  padding: 0;
 }
 
 .homepage-dashboard-proof .mgmt-shell {
-  max-width: 1200px;
-  margin: 0 auto;
+  width: 100%;
 }
 
 .mgmt-hero {
@@ -56,16 +139,6 @@
   border-radius: 12px;
   padding: 18px 16px;
   margin-bottom: 18px;
-}
-
-.mgmt-eyebrow {
-  font-size: 11px;
-  line-height: 1;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  font-weight: 800;
-  color: var(--text-muted);
-  margin-bottom: 6px;
 }
 
 .mgmt-title {
@@ -254,7 +327,6 @@
 }
 
 .mgmt-dash-list-item,
-.mgmt-dash-dispatch-item,
 .mgmt-dash-quicklink {
   border: 1px solid var(--border);
   border-radius: 12px;
@@ -262,8 +334,7 @@
   background: #fff;
 }
 
-.mgmt-dash-list-top,
-.mgmt-dash-dispatch-top {
+.mgmt-dash-list-top {
   display: flex;
   justify-content: space-between;
   gap: 12px;
@@ -327,6 +398,10 @@
 }
 
 @media (max-width: 1100px) {
+  .homepage-dashboard-callouts {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .mgmt-dash-kpi-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -342,13 +417,31 @@
     padding: 56px 0;
   }
 
-  .homepage-dashboard-head,
-  .homepage-dashboard-proof .mgmt-screen {
+  .homepage-dashboard-shell {
     padding: 0 16px;
+  }
+
+  .homepage-dashboard-copy {
+    text-align: left;
+    margin-bottom: 22px;
   }
 
   .homepage-dashboard-lead {
     font-size: 16px;
+  }
+
+  .homepage-dashboard-mockup {
+    padding: 14px;
+    border-radius: 18px;
+  }
+
+  .homepage-dashboard-callouts {
+    grid-template-columns: 1fr;
+  }
+
+  .homepage-dashboard-strip {
+    font-size: 18px;
+    padding: 16px 18px;
   }
 
   .mgmt-dash-hero {
