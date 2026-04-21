@@ -66,6 +66,7 @@
 }
 
 .homepage-dashboard-mockup {
+  position: relative;
   background: linear-gradient(180deg, rgba(255,255,255,0.92), rgba(255,255,255,0.86));
   border: 1px solid rgba(26,94,42,0.12);
   border-radius: 22px;
@@ -75,22 +76,44 @@
     0 8px 24px rgba(15,61,26,0.06);
 }
 
-.homepage-dashboard-callouts {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 12px;
+.homepage-dashboard-overlay-callouts {
+  pointer-events: none;
 }
 
-.homepage-dashboard-callout {
-  background: #fff;
-  border: 1px solid rgba(26,94,42,0.12);
-  border-radius: 16px;
-  padding: 14px 16px;
-  font-size: 14px;
-  line-height: 1.45;
+.homepage-dashboard-overlay-callout {
+  position: absolute;
+  z-index: 5;
+  max-width: 220px;
+  padding: 10px 12px;
+  border-radius: 14px;
+  background: rgba(255,255,255,0.96);
+  border: 1px solid rgba(26,94,42,0.14);
+  box-shadow: 0 10px 24px rgba(15,61,26,0.08);
+  backdrop-filter: blur(8px);
+  font-size: 13px;
+  line-height: 1.35;
   font-weight: 700;
   color: var(--text);
-  box-shadow: 0 8px 20px rgba(15,61,26,0.04);
+}
+
+.homepage-dashboard-overlay-callout.callout-1 {
+  top: 26px;
+  left: 26px;
+}
+
+.homepage-dashboard-overlay-callout.callout-2 {
+  top: 26px;
+  right: 26px;
+}
+
+.homepage-dashboard-overlay-callout.callout-3 {
+  bottom: 26px;
+  left: 26px;
+}
+
+.homepage-dashboard-overlay-callout.callout-4 {
+  bottom: 26px;
+  right: 26px;
 }
 
 .homepage-dashboard-strip {
@@ -123,6 +146,12 @@
   font-size: 16px;
   font-weight: 800;
   box-shadow: 0 12px 26px rgba(232,168,56,0.28);
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+.homepage-dashboard-cta:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 16px 30px rgba(232,168,56,0.34);
 }
 
 .homepage-dashboard-proof .mgmt-screen {
@@ -398,10 +427,6 @@
 }
 
 @media (max-width: 1100px) {
-  .homepage-dashboard-callouts {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
   .mgmt-dash-kpi-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -435,8 +460,18 @@
     border-radius: 18px;
   }
 
-  .homepage-dashboard-callouts {
+  .homepage-dashboard-overlay-callouts {
+    position: static;
+    display: grid;
     grid-template-columns: 1fr;
+    gap: 8px;
+    margin-top: 12px;
+    pointer-events: auto;
+  }
+
+  .homepage-dashboard-overlay-callout {
+    position: static;
+    max-width: none;
   }
 
   .homepage-dashboard-strip {
