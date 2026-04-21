@@ -65,9 +65,15 @@
   gap: 18px;
 }
 
+.homepage-dashboard-annotated {
+  position: relative;
+  padding: 44px 180px 84px;
+}
+
 .homepage-dashboard-mockup {
   position: relative;
-  background: linear-gradient(180deg, rgba(255,255,255,0.92), rgba(255,255,255,0.86));
+  z-index: 2;
+  background: linear-gradient(180deg, rgba(255,255,255,0.94), rgba(255,255,255,0.88));
   border: 1px solid rgba(26,94,42,0.12);
   border-radius: 22px;
   padding: 18px;
@@ -76,19 +82,24 @@
     0 8px 24px rgba(15,61,26,0.06);
 }
 
-.homepage-dashboard-overlay-callouts {
-  pointer-events: none;
+.homepage-dashboard-callout {
+  position: absolute;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  gap: 12px;
 }
 
-.homepage-dashboard-overlay-callout {
-  position: absolute;
-  z-index: 5;
+.callout-card {
   max-width: 220px;
-  padding: 10px 12px;
+  padding: 12px 14px;
   border-radius: 14px;
   background: rgba(255,255,255,0.96);
   border: 1px solid rgba(26,94,42,0.14);
-  box-shadow: 0 10px 24px rgba(15,61,26,0.08);
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,0.85) inset,
+    0 10px 30px rgba(15,61,26,0.08),
+    0 0 22px rgba(26,94,42,0.08);
   backdrop-filter: blur(8px);
   font-size: 13px;
   line-height: 1.35;
@@ -96,24 +107,67 @@
   color: var(--text);
 }
 
-.homepage-dashboard-overlay-callout.callout-1 {
-  top: 26px;
-  left: 26px;
+.callout-dot {
+  position: relative;
+  width: 12px;
+  height: 12px;
+  flex: 0 0 12px;
+  border-radius: 999px;
+  background: var(--accent);
+  box-shadow:
+    0 0 0 4px rgba(232,168,56,0.16),
+    0 0 18px rgba(232,168,56,0.35);
 }
 
-.homepage-dashboard-overlay-callout.callout-2 {
-  top: 26px;
-  right: 26px;
+.callout-dot::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 78px;
+  height: 1px;
+  transform: translateY(-50%);
 }
 
-.homepage-dashboard-overlay-callout.callout-3 {
-  bottom: 26px;
-  left: 26px;
+.callout-kpi {
+  top: 86px;
+  left: 0;
 }
 
-.homepage-dashboard-overlay-callout.callout-4 {
-  bottom: 26px;
-  right: 26px;
+.callout-kpi .callout-dot::before {
+  left: 12px;
+  background: linear-gradient(to right, rgba(232,168,56,0.7), rgba(232,168,56,0.05));
+}
+
+.callout-finance {
+  top: 118px;
+  right: 0;
+  flex-direction: row-reverse;
+}
+
+.callout-finance .callout-dot::before {
+  right: 12px;
+  background: linear-gradient(to left, rgba(232,168,56,0.7), rgba(232,168,56,0.05));
+}
+
+.callout-alerts {
+  bottom: 122px;
+  left: 0;
+}
+
+.callout-alerts .callout-dot::before {
+  left: 12px;
+  background: linear-gradient(to right, rgba(232,168,56,0.7), rgba(232,168,56,0.05));
+}
+
+.callout-overview {
+  bottom: 78px;
+  right: 0;
+  flex-direction: row-reverse;
+}
+
+.callout-overview .callout-dot::before {
+  right: 12px;
+  background: linear-gradient(to left, rgba(232,168,56,0.7), rgba(232,168,56,0.05));
 }
 
 .homepage-dashboard-strip {
@@ -426,7 +480,46 @@
   color: var(--text-muted);
 }
 
+@media (max-width: 1200px) {
+  .homepage-dashboard-annotated {
+    padding: 24px 140px 70px;
+  }
+
+  .callout-card {
+    max-width: 190px;
+  }
+}
+
 @media (max-width: 1100px) {
+  .homepage-dashboard-annotated {
+    padding: 0;
+    display: grid;
+    gap: 10px;
+  }
+
+  .homepage-dashboard-callout {
+    position: static;
+    flex-direction: row;
+  }
+
+  .callout-dot::before {
+    display: none;
+  }
+
+  .callout-card {
+    max-width: none;
+    width: 100%;
+  }
+
+  .homepage-dashboard-mockup {
+    order: 1;
+  }
+
+  .callout-kpi { order: 2; }
+  .callout-finance { order: 3; }
+  .callout-alerts { order: 4; }
+  .callout-overview { order: 5; }
+
   .mgmt-dash-kpi-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -458,20 +551,6 @@
   .homepage-dashboard-mockup {
     padding: 14px;
     border-radius: 18px;
-  }
-
-  .homepage-dashboard-overlay-callouts {
-    position: static;
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 8px;
-    margin-top: 12px;
-    pointer-events: auto;
-  }
-
-  .homepage-dashboard-overlay-callout {
-    position: static;
-    max-width: none;
   }
 
   .homepage-dashboard-strip {
