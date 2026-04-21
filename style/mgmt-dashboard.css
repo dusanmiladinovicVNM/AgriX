@@ -67,7 +67,7 @@
 
 .homepage-dashboard-annotated {
   position: relative;
-  padding: 44px 180px 84px;
+  padding: 42px 220px 78px;
 }
 
 .homepage-dashboard-mockup {
@@ -91,13 +91,13 @@
 }
 
 .callout-card {
-  max-width: 220px;
+  max-width: 210px;
   padding: 12px 14px;
   border-radius: 14px;
   background: rgba(255,255,255,0.96);
   border: 1px solid rgba(26,94,42,0.14);
   box-shadow:
-    0 0 0 1px rgba(255,255,255,0.85) inset,
+    0 0 0 1px rgba(255,255,255,0.82) inset,
     0 10px 30px rgba(15,61,26,0.08),
     0 0 22px rgba(26,94,42,0.08);
   backdrop-filter: blur(8px);
@@ -141,7 +141,6 @@
 .callout-finance {
   top: 118px;
   right: 0;
-  flex-direction: row-reverse;
 }
 
 .callout-finance .callout-dot::before {
@@ -162,7 +161,6 @@
 .callout-overview {
   bottom: 78px;
   right: 0;
-  flex-direction: row-reverse;
 }
 
 .callout-overview .callout-dot::before {
@@ -499,7 +497,6 @@
 
   .homepage-dashboard-callout {
     position: static;
-    flex-direction: row;
   }
 
   .callout-dot::before {
@@ -519,6 +516,7 @@
   .callout-finance { order: 3; }
   .callout-alerts { order: 4; }
   .callout-overview { order: 5; }
+}
 
   .mgmt-dash-kpi-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
