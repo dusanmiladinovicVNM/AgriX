@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 320" preserveAspectRatio="none" role="img" aria-labelledby="chartTitle chartDesc">
+  <title id="chartTitle">Otkup u toku</title>
+  <desc id="chartDesc">Linijski grafikon sezonskog otkupa po danu.</desc>
+
+  <rect x="0" y="0" width="900" height="320" fill="#fff"/>
+
+  <g stroke="#e8e3d6" stroke-width="1">
+    <line x1="38" y1="250" x2="880" y2="250"/>
+    <line x1="38" y1="210" x2="880" y2="210"/>
+    <line x1="38" y1="170" x2="880" y2="170"/>
+    <line x1="38" y1="130" x2="880" y2="130"/>
+    <line x1="38" y1="90" x2="880" y2="90"/>
+    <line x1="38" y1="50" x2="880" y2="50"/>
+  </g>
+
+  <g font-size="11" fill="#7b7b72" font-family="Segoe UI, Arial, sans-serif">
+    <text x="8" y="254">0</text>
+    <text x="2" y="214">10.000</text>
+    <text x="2" y="174">20.000</text>
+    <text x="2" y="134">30.000</text>
+    <text x="2" y="94">40.000</text>
+    <text x="2" y="54">50.000</text>
+  </g>
+
+  <path d="M38,250
+           L66,247 L94,244 L122,157 L150,250 L178,156 L206,168 L234,249
+           L262,250 L290,68 L318,250 L346,250 L374,232 L402,250 L430,250
+           L458,250 L486,250 L514,250 L542,245 L570,250 L598,250 L626,250
+           L654,250 L682,210 L710,230 L738,250 L766,250 L794,250 L822,240
+           L850,228 L878,244"
+        fill="none" stroke="#1a5e2a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <path d="M38,250
+           L66,247 L94,244 L122,157 L150,250 L178,156 L206,168 L234,249
+           L262,250 L290,68 L318,250 L346,250 L374,232 L402,250 L430,250
+           L458,250 L486,250 L514,250 L542,245 L570,250 L598,250 L626,250
+           L654,250 L682,210 L710,230 L738,250 L766,250 L794,250 L822,240
+           L850,228 L878,244 L878,250 L38,250 Z"
+        fill="rgba(26,94,42,0.10)"/>
+
+  <g fill="#1a5e2a">
+    <circle cx="38" cy="250" r="4"/>
+    <circle cx="66" cy="247" r="4"/>
+    <circle cx="94" cy="244" r="4"/>
+    <circle cx="122" cy="157" r="4"/>
+    <circle cx="150" cy="250" r="4"/>
+    <circle cx="178" cy="156" r="4"/>
+    <circle cx="206" cy="168" r="4"/>
+    <circle cx="234" cy="249" r="4"/>
+    <circle cx="262" cy="250" r="4"/>
+    <circle cx="290" cy="68" r="4"/>
+    <circle cx="318" cy="250" r="4"/>
+    <circle cx="346" cy="250" r="4"/>
+    <circle cx="374" cy="232" r="4"/>
+    <circle cx="402" cy="250" r="4"/>
+    <circle cx="430" cy="250" r="4"/>
+    <circle cx="458" cy="250" r="4"/>
+    <circle cx="486" cy="250" r="4"/>
+    <circle cx="514" cy="250" r="4"/>
+    <circle cx="542" cy="245" r="4"/>
+    <circle cx="570" cy="250" r="4"/>
+    <circle cx="598" cy="250" r="4"/>
+    <circle cx="626" cy="250" r="4"/>
+    <circle cx="654" cy="250" r="4"/>
+    <circle cx="682" cy="210" r="4"/>
+    <circle cx="710" cy="230" r="4"/>
+    <circle cx="738" cy="250" r="4"/>
+    <circle cx="766" cy="250" r="4"/>
+    <circle cx="794" cy="250" r="4"/>
+    <circle cx="822" cy="240" r="4"/>
+    <circle cx="850" cy="228" r="4"/>
+    <circle cx="878" cy="244" r="4"/>
+  </g>
+</svg>
