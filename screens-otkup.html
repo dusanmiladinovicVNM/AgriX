@@ -1,0 +1,1490 @@
+<!DOCTYPE html><html lang="sr"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>otkup screens</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   BRAND TOKENS — usklađeno sa websiteom
+   ============================================================ */
+:root {
+  /* Brand */
+  --forest: #1E2D14;
+  --forest-80: #354a28;
+  --accent: #5EA135;
+  --accent-light: #7dbf55;
+  --accent-pale: #c4e4a8;
+  --accent-soft: rgba(94,161,53,0.10);
+  --gold: #C8A84B;
+  --gold-pale: #f0e2b8;
+  --gold-soft: rgba(200,168,75,0.14);
+  --cream: #F7F4EE;
+  --cream-warm: #F2EDE4;
+  --white: #FFFFFF;
+
+  /* Text */
+  --text: #1E2D14;
+  --text-secondary: #4A5A3C;
+  --text-muted: #7A856E;
+  --text-light: #9FA894;
+
+  /* Borders + surfaces */
+  --border: rgba(30,45,20,0.08);
+  --border-strong: rgba(30,45,20,0.16);
+  --surface: #FFFFFF;
+  --surface-2: #FAF8F2;
+
+  /* Status — semantičke boje */
+  --color-error: #b34747;
+  --color-error-soft: rgba(179,71,71,0.10);
+  --color-success: #2e7d32;
+  --color-success-soft: rgba(46,125,50,0.10);
+  --color-warning: #c8893a;
+  --color-warning-soft: rgba(200,137,58,0.12);
+
+  /* Shadows */
+  --shadow-card: 0 1px 3px rgba(30,45,20,0.06), 0 8px 24px rgba(30,45,20,0.05);
+  --shadow-elevated: 0 4px 12px rgba(30,45,20,0.10), 0 16px 36px rgba(30,45,20,0.08);
+  --shadow-sticky: 0 -8px 24px rgba(30,45,20,0.10);
+
+  /* Type */
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-body: 'Segoe UI', system-ui, -apple-system, sans-serif;
+
+  /* Radii */
+  --radius-sm: 10px;
+  --radius-md: 14px;
+  --radius-lg: 18px;
+  --radius-xl: 22px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { background: var(--cream); color: var(--text); font-family: var(--font-body); }
+body {
+  min-height: 100vh;
+  padding: 48px 24px 80px;
+  background-image:
+    radial-gradient(ellipse 60% 40% at 20% 0%, var(--accent-soft), transparent 50%),
+    radial-gradient(ellipse 50% 40% at 80% 30%, var(--gold-soft), transparent 50%);
+}
+
+/* ============================================================
+   PAGE HEAD
+   ============================================================ */
+.page {
+  max-width: 1340px;
+  margin: 0 auto;
+}
+.page__head {
+  text-align: center;
+  margin-bottom: 56px;
+}
+.page__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 600;
+  margin-bottom: 18px;
+}
+.page__eyebrow::before {
+  content: ''; width: 7px; height: 7px;
+  border-radius: 50%; background: var(--gold);
+}
+.page__title {
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 4vw, 3.2rem);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--forest);
+  margin-bottom: 14px;
+}
+.page__title em { color: var(--accent); font-style: italic; font-weight: 600; }
+.page__lead {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+/* ============================================================
+   SECTION
+   ============================================================ */
+.section {
+  margin-bottom: 64px;
+}
+.section__head {
+  max-width: 880px;
+  margin: 0 auto 28px;
+  text-align: center;
+}
+.section__label {
+  display: inline-flex; align-items: center; gap: 0.65rem;
+  font-size: 0.7rem; letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--accent); font-weight: 700;
+  padding: 6px 14px;
+  background: var(--accent-soft);
+  border-radius: 999px;
+  margin-bottom: 14px;
+}
+.section__title {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 2.8vw, 2.4rem);
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  color: var(--forest);
+  margin-bottom: 10px;
+}
+.section__desc {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  line-height: 1.55;
+  max-width: 540px;
+  margin: 0 auto;
+}
+
+/* ============================================================
+   PHONE FRAME
+   ============================================================ */
+.devices {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 380px));
+  gap: 32px;
+  justify-content: center;
+  align-items: start;
+}
+.device {
+  width: 380px;
+  background: #1c1c1c;
+  border-radius: 42px;
+  padding: 11px;
+  box-shadow: 0 40px 80px rgba(30,45,20,0.18),
+              0 8px 20px rgba(30,45,20,0.10);
+  position: relative;
+}
+.device::after {
+  content: '';
+  position: absolute;
+  top: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 24px;
+  background: #0a0a0a;
+  border-radius: 14px;
+  z-index: 2;
+}
+.screen {
+  background: var(--cream);
+  border-radius: 34px;
+  overflow: hidden;
+  position: relative;
+  height: 760px;
+  display: flex;
+  flex-direction: column;
+  font-size: 14px;
+}
+.statusbar {
+  height: 44px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding: 0 28px 6px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text);
+}
+.statusbar .indicators { display: inline-flex; gap: 5px; align-items: center; font-size: 11px; }
+
+.device__label {
+  margin-top: 18px;
+  text-align: center;
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+.device__label strong {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-style: italic;
+  font-weight: 600;
+  color: var(--forest);
+  letter-spacing: -0.005em;
+  text-transform: none;
+  margin-top: 2px;
+}
+
+/* ============================================================
+   APP HEADER (in screen)
+   ============================================================ */
+.app-hd {
+  padding: 14px 18px 16px;
+  background: var(--forest);
+  color: var(--cream);
+  position: relative;
+  overflow: hidden;
+}
+.app-hd::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse 80% 60% at 80% 20%, rgba(200,168,75,0.18), transparent 60%);
+  pointer-events: none;
+}
+.app-hd__row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  position: relative;
+}
+.app-hd__role {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+.app-hd__avatar {
+  width: 32px; height: 32px;
+  border-radius: 50%;
+  background: var(--gold);
+  color: var(--forest);
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 14px;
+}
+.app-hd__title {
+  font-family: var(--font-display);
+  font-size: 26px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1.05;
+  position: relative;
+}
+.app-hd__title em { color: var(--gold); font-style: italic; }
+.app-hd__sub {
+  font-size: 12px;
+  opacity: 0.65;
+  margin-top: 4px;
+  position: relative;
+}
+
+/* ============================================================
+   APP BODY
+   ============================================================ */
+.app-body {
+  flex: 1;
+  overflow-y: auto;
+  background: var(--cream);
+  padding: 16px 14px 100px;
+}
+
+/* Step header */
+.step {
+  margin-bottom: 16px;
+}
+.step__head {
+  display: flex; align-items: center; gap: 10px;
+  margin-bottom: 10px; padding: 0 4px;
+}
+.step__num {
+  width: 26px; height: 26px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: var(--cream);
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 700; font-size: 13px;
+  font-family: var(--font-display);
+}
+.step__num.is-done {
+  background: var(--forest);
+}
+.step__num.is-done::before { content: '✓'; }
+.step__num.is-done > * { display: none; }
+
+.step__title {
+  font-family: var(--font-display);
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--forest);
+  letter-spacing: -0.005em;
+}
+.step__hint {
+  margin-left: auto;
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
+/* Card */
+.card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 14px;
+  box-shadow: var(--shadow-card);
+  margin-bottom: 12px;
+}
+.card--soft { background: var(--surface-2); }
+.card--success {
+  background: var(--color-success-soft);
+  border-color: rgba(46,125,50,0.20);
+}
+.card--accent {
+  background: var(--accent-soft);
+  border-color: rgba(94,161,53,0.20);
+}
+
+/* QR scan CTA */
+.scan-cta {
+  display: grid;
+  grid-template-columns: 48px 1fr auto;
+  gap: 12px;
+  align-items: center;
+  padding: 12px 14px;
+  background: linear-gradient(135deg, var(--forest) 0%, #2a3d1e 100%);
+  color: var(--cream);
+  border-radius: var(--radius-md);
+  position: relative;
+  overflow: hidden;
+}
+.scan-cta::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(circle at right, rgba(200,168,75,0.18), transparent 60%);
+  pointer-events: none;
+}
+.scan-cta__icon {
+  width: 44px; height: 44px;
+  background: var(--gold);
+  color: var(--forest);
+  border-radius: 11px;
+  display: flex; align-items: center; justify-content: center;
+}
+.scan-cta__icon svg { width: 24px; height: 24px; }
+.scan-cta__text { line-height: 1.25; position: relative; }
+.scan-cta__title { font-weight: 700; font-size: 14px; }
+.scan-cta__sub { font-size: 11px; opacity: 0.7; margin-top: 2px; }
+.scan-cta__chev { color: var(--gold); position: relative; }
+
+/* Kooperant chip (after scan) */
+.koop-chip {
+  display: grid;
+  grid-template-columns: 42px 1fr auto;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  background: var(--accent-soft);
+  border: 1px solid rgba(94,161,53,0.25);
+  border-radius: var(--radius-md);
+}
+.koop-chip__avatar {
+  width: 40px; height: 40px;
+  background: var(--accent); color: var(--cream);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-display);
+  font-weight: 700; font-size: 15px;
+}
+.koop-chip__name { font-weight: 700; font-size: 14px; color: var(--forest); line-height: 1.2; }
+.koop-chip__id { font-size: 11px; color: var(--text-muted); margin-top: 2px; }
+.koop-chip__check {
+  width: 28px; height: 28px;
+  background: var(--accent);
+  color: var(--cream);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 800;
+}
+
+/* Form field */
+.field { margin-bottom: 12px; }
+.field__label {
+  display: block;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  margin-bottom: 6px;
+}
+.field__input,
+.field__select {
+  width: 100%;
+  padding: 12px 14px;
+  background: var(--white);
+  border: 1.5px solid var(--border-strong);
+  border-radius: var(--radius-sm);
+  font-size: 15px;
+  color: var(--forest);
+  font-family: inherit;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+.field__input:focus,
+.field__select:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(94,161,53,0.12);
+}
+.field__input--big {
+  font-family: var(--font-display);
+  font-size: 28px;
+  font-weight: 600;
+  text-align: center;
+  letter-spacing: -0.01em;
+  padding: 14px;
+}
+.field__row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.field__hint { font-size: 11px; color: var(--text-muted); margin-top: 6px; line-height: 1.4; }
+.field__hint strong { color: var(--accent); }
+
+/* Class picker — visual */
+.class-picker { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 6px; }
+.class-pick {
+  padding: 10px 8px;
+  background: var(--white);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-sm);
+  text-align: center;
+  cursor: pointer;
+}
+.class-pick.is-sel {
+  background: var(--accent); border-color: var(--accent); color: var(--cream);
+}
+.class-pick__c {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1;
+}
+.class-pick__l { font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; margin-top: 4px; opacity: 0.7; }
+
+/* Pkg picker */
+.pkg-picker { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 6px; }
+.pkg-pick {
+  padding: 10px 4px;
+  background: var(--white);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-sm);
+  text-align: center;
+  cursor: pointer;
+}
+.pkg-pick.is-sel {
+  background: var(--gold-soft);
+  border-color: var(--gold);
+}
+.pkg-pick__v {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--forest);
+}
+.pkg-pick__d { font-size: 10px; color: var(--text-muted); margin-top: 2px; }
+
+/* Sticky save bar */
+.sticky-bar {
+  position: absolute; left: 12px; right: 12px; bottom: 16px;
+  background: rgba(247,244,238,0.96);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-radius: var(--radius-lg);
+  padding: 10px;
+  display: grid; grid-template-columns: 1fr 1.6fr; gap: 8px;
+  box-shadow: var(--shadow-elevated);
+  border: 1px solid var(--border);
+}
+.btn {
+  padding: 13px;
+  font-size: 14px; font-weight: 700;
+  border-radius: var(--radius-sm);
+  border: 0;
+  cursor: pointer;
+  font-family: inherit;
+  display: inline-flex; align-items: center; justify-content: center;
+  gap: 6px;
+}
+.btn--primary {
+  background: var(--forest); color: var(--cream);
+  box-shadow: 0 6px 16px rgba(30,45,20,0.20);
+}
+.btn--primary:hover { background: var(--forest-80); }
+.btn--secondary {
+  background: var(--white); color: var(--forest);
+  border: 1.5px solid var(--border-strong);
+}
+.btn--accent {
+  background: var(--accent); color: var(--cream);
+}
+.btn__hint { font-size: 11px; opacity: 0.7; font-weight: 400; }
+
+/* ============================================================
+   PREGLED VARIANT
+   ============================================================ */
+.pregled-hero {
+  padding: 16px 16px 20px;
+  background: linear-gradient(180deg, var(--forest) 0%, #2a3d1e 100%);
+  color: var(--cream);
+  position: relative;
+  overflow: hidden;
+}
+.pregled-hero::after {
+  content: '';
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse 60% 40% at 80% 0%, rgba(200,168,75,0.18), transparent 50%),
+    radial-gradient(ellipse 50% 40% at 0% 100%, rgba(94,161,53,0.14), transparent 50%);
+  pointer-events: none;
+}
+.pregled-hero__row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; position: relative; }
+.pregled-hero__title {
+  font-family: var(--font-display);
+  font-size: 26px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1.05;
+  position: relative;
+}
+.pregled-hero__sub {
+  font-size: 12px;
+  opacity: 0.7;
+  margin-bottom: 14px;
+  position: relative;
+}
+
+/* Stats row */
+.stats-row {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr;
+  gap: 8px;
+  position: relative;
+}
+.stat {
+  background: rgba(247,244,238,0.10);
+  border: 1px solid rgba(247,244,238,0.18);
+  border-radius: var(--radius-md);
+  padding: 10px 12px;
+  backdrop-filter: blur(8px);
+}
+.stat--big {
+  background: var(--gold);
+  border: none;
+  color: var(--forest);
+}
+.stat__val {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  line-height: 1;
+}
+.stat__val--big { font-size: 28px; }
+.stat__val .u { font-size: 12px; opacity: 0.65; font-weight: 500; margin-left: 2px; }
+.stat--big .stat__val .u { opacity: 0.55; }
+.stat__lbl {
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-top: 4px;
+  opacity: 0.7;
+}
+.stat--big .stat__lbl { opacity: 0.65; font-weight: 600; }
+
+/* Filter pills */
+.pills {
+  display: flex;
+  gap: 6px;
+  overflow-x: auto;
+  padding: 14px 14px 0;
+  background: var(--cream);
+}
+.pill {
+  flex-shrink: 0;
+  padding: 8px 14px;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-muted);
+  cursor: pointer;
+  font-family: inherit;
+}
+.pill.is-active {
+  background: var(--forest); color: var(--cream); border-color: var(--forest);
+}
+
+/* Section title with count */
+.list-head {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 18px 4px 10px;
+}
+.list-head__title {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--forest);
+  letter-spacing: -0.005em;
+}
+.list-head__count {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text-muted);
+  background: var(--white);
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+}
+
+/* Record card */
+.rec {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 14px;
+  margin-bottom: 10px;
+  box-shadow: var(--shadow-card);
+  cursor: pointer;
+  position: relative;
+}
+.rec__top {
+  display: flex; justify-content: space-between; align-items: flex-start;
+  margin-bottom: 10px;
+}
+.rec__koop {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--forest);
+  letter-spacing: -0.005em;
+  line-height: 1.15;
+}
+.rec__time { font-size: 11px; color: var(--text-muted); }
+.rec__main {
+  display: flex; align-items: center; gap: 12px;
+  padding: 8px 0;
+  border-top: 1px dashed var(--border);
+  border-bottom: 1px dashed var(--border);
+}
+.rec__kg {
+  font-family: var(--font-display);
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--accent);
+  letter-spacing: -0.01em;
+  line-height: 1;
+}
+.rec__kg .u { font-size: 12px; color: var(--text-muted); margin-left: 2px; }
+.rec__det {
+  font-size: 12px;
+  color: var(--text-secondary);
+  line-height: 1.35;
+  flex: 1;
+}
+.rec__det strong { color: var(--forest); font-weight: 700; }
+.rec__bottom {
+  display: flex; align-items: center; justify-content: space-between;
+  padding-top: 10px;
+}
+.rec__val {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--forest);
+  letter-spacing: -0.005em;
+}
+.rec__badge {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 5px 10px;
+  border-radius: 999px;
+  display: inline-flex; align-items: center; gap: 6px;
+}
+.rec__badge::before {
+  content: ''; width: 6px; height: 6px; border-radius: 50%;
+  background: currentColor;
+}
+.rec__badge--ok { background: var(--color-success-soft); color: var(--color-success); }
+.rec__badge--warn { background: var(--color-warning-soft); color: var(--color-warning); }
+.rec__badge--err { background: var(--color-error-soft); color: var(--color-error); }
+
+/* Bottom nav */
+.bottom-nav {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  background: var(--white);
+  border-top: 1px solid var(--border);
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  padding: 8px 0 14px;
+  box-shadow: var(--shadow-sticky);
+}
+.bottom-nav__item {
+  display: flex; flex-direction: column; align-items: center; gap: 4px;
+  padding: 6px 0;
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 10.5px;
+  font-weight: 600;
+}
+.bottom-nav__item.is-active { color: var(--accent); }
+.bottom-nav__item svg { width: 22px; height: 22px; }
+
+/* ============================================================
+   NOTES (next to phones)
+   ============================================================ */
+.note {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 22px 24px;
+  max-width: 380px;
+  box-shadow: var(--shadow-card);
+}
+.note__eyebrow {
+  font-size: 0.66rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--accent);
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+.note__title {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 600;
+  line-height: 1.15;
+  color: var(--forest);
+  letter-spacing: -0.01em;
+  margin-bottom: 12px;
+}
+.note__list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+.note__list li {
+  display: grid; grid-template-columns: 18px 1fr; gap: 10px;
+  font-size: 13.5px;
+  line-height: 1.5;
+  color: var(--text-secondary);
+}
+.note__list li::before {
+  content: '';
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+  margin-top: 8px;
+}
+.note__list li strong { color: var(--forest); font-weight: 600; }
+.note__hr {
+  margin: 18px 0 14px;
+  border: 0; border-top: 1px dashed var(--border-strong);
+}
+.note__tldr {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.05rem;
+  color: var(--forest);
+  line-height: 1.4;
+  letter-spacing: -0.005em;
+}
+.note__tldr::before {
+  content: '"';
+  font-size: 1.8rem;
+  color: var(--gold);
+  margin-right: 4px;
+  line-height: 0;
+}
+
+/* SVG helper */
+.i { display: inline-flex; }
+.i svg { display: block; }
+
+/* Toast preview */
+.toast {
+  position: absolute;
+  top: 80px; left: 16px; right: 16px;
+  background: var(--forest);
+  color: var(--cream);
+  padding: 12px 14px;
+  border-radius: var(--radius-md);
+  display: flex; align-items: center; gap: 10px;
+  box-shadow: var(--shadow-elevated);
+  z-index: 5;
+}
+.toast__icon {
+  width: 28px; height: 28px;
+  background: var(--accent);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 800;
+  color: var(--cream);
+  flex-shrink: 0;
+}
+.toast__text { flex: 1; }
+.toast__title { font-size: 13px; font-weight: 700; }
+.toast__sub { font-size: 11px; opacity: 0.7; margin-top: 2px; }
+
+@media (max-width: 880px) {
+  .devices { grid-template-columns: 1fr; }
+  .note { max-width: 100%; }
+}
+
+
+html,body{margin:0;padding:0;background:transparent;overflow:hidden}
+.scr{position:absolute;top:0;left:0;width:380px;height:800px;transform-origin:top left;display:none}
+.scr.active{display:block}
+.scr .screen{width:380px !important;height:800px !important;border-radius:0 !important;box-shadow:none !important}
+</style></head><body>
+<div class="scr" id="otkup-1"><!-- Stanje 1 Prazna · čeka QR -->
+<div class="screen">
+            <div class="statusbar">
+              <span>09:41</span>
+              <span class="indicators">●●●●● <strong>4G</strong> ▮</span>
+            </div>
+            <div class="app-hd">
+              <div class="app-hd__row">
+                <span class="app-hd__role">Otkupac · Oblačina</span>
+                <div class="app-hd__avatar">MP</div>
+              </div>
+              <h1 class="app-hd__title">Novi <em>otkup</em></h1>
+              <div class="app-hd__sub">12. avgust · 09:41</div>
+            </div>
+
+            <div class="app-body">
+
+              <!-- STEP 1 — empty -->
+              <div class="step">
+                <div class="step__head">
+                  <div class="step__num">1</div>
+                  <div class="step__title">Skenirajte kooperanta</div>
+                </div>
+                <div class="scan-cta">
+                  <div class="scan-cta__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><path d="M14 14h3v3h-3zM20 14v7M14 20h3"/></svg>
+                  </div>
+                  <div class="scan-cta__text">
+                    <div class="scan-cta__title">QR kod kooperanta</div>
+                    <div class="scan-cta__sub">ili izaberite ručno iz liste</div>
+                  </div>
+                  <div class="scan-cta__chev">→</div>
+                </div>
+              </div>
+
+              <!-- STEP 2..4 dimmed -->
+              <div class="step" style="opacity: 0.4;">
+                <div class="step__head">
+                  <div class="step__num" style="background: var(--border-strong); color: var(--text-muted);">2</div>
+                  <div class="step__title">Parcela</div>
+                  <span class="step__hint">opciono</span>
+                </div>
+                <div class="card card--soft" style="height: 52px;"></div>
+              </div>
+
+              <div class="step" style="opacity: 0.3;">
+                <div class="step__head">
+                  <div class="step__num" style="background: var(--border-strong); color: var(--text-muted);">3</div>
+                  <div class="step__title">Roba i klasa</div>
+                </div>
+                <div class="card card--soft" style="height: 96px;"></div>
+              </div>
+
+              <div class="step" style="opacity: 0.2;">
+                <div class="step__head">
+                  <div class="step__num" style="background: var(--border-strong); color: var(--text-muted);">4</div>
+                  <div class="step__title">Količina i ambalaža</div>
+                </div>
+                <div class="card card--soft" style="height: 80px;"></div>
+              </div>
+            </div>
+
+            <div class="sticky-bar">
+              <button class="btn btn--secondary">Otkaži</button>
+              <button class="btn btn--primary" style="opacity: 0.5;" disabled>
+                Sačuvaj otkup
+                <span class="btn__hint">(skenirajte prvo)</span>
+              </button>
+            </div>
+          </div>
+</div>
+<div class="scr" id="otkup-2"><!-- Stanje 2 Popunjena · spremna -->
+<div class="screen">
+            <div class="statusbar">
+              <span>09:43</span>
+              <span class="indicators">●●●●● <strong>4G</strong> ▮</span>
+            </div>
+            <div class="app-hd">
+              <div class="app-hd__row">
+                <span class="app-hd__role">Otkupac · Oblačina</span>
+                <div class="app-hd__avatar">MP</div>
+              </div>
+              <h1 class="app-hd__title">Novi <em>otkup</em></h1>
+              <div class="app-hd__sub">12. avgust · 09:43</div>
+            </div>
+
+            <div class="app-body">
+
+              <!-- STEP 1 — done -->
+              <div class="step">
+                <div class="step__head">
+                  <div class="step__num is-done"><span>1</span></div>
+                  <div class="step__title">Kooperant</div>
+                  <span class="step__hint">Promeni</span>
+                </div>
+                <div class="koop-chip">
+                  <div class="koop-chip__avatar">PJ</div>
+                  <div>
+                    <div class="koop-chip__name">Petar Jovanović</div>
+                    <div class="koop-chip__id">K-2847 · Oblačina</div>
+                  </div>
+                  <div class="koop-chip__check">✓</div>
+                </div>
+              </div>
+
+              <!-- STEP 2 — done -->
+              <div class="step">
+                <div class="step__head">
+                  <div class="step__num is-done"><span>2</span></div>
+                  <div class="step__title">Parcela</div>
+                </div>
+                <div class="card">
+                  <div style="font-weight: 700; font-size: 14px; color: var(--forest);">Parcela 3 · Voćnjak Oblačina</div>
+                  <div style="font-size: 11px; color: var(--text-muted); margin-top: 2px;">Kat. br. 1247/2 · 1.8 ha · Višnja oblačinska</div>
+                </div>
+              </div>
+
+              <!-- STEP 3 — active -->
+              <div class="step">
+                <div class="step__head">
+                  <div class="step__num">3</div>
+                  <div class="step__title">Roba i klasa</div>
+                </div>
+                <div class="card">
+                  <div class="field" style="margin-bottom: 10px;">
+                    <label class="field__label">Vrsta voća</label>
+                    <select class="field__select"><option>Višnja (Oblačinska)</option></select>
+                  </div>
+                  <label class="field__label">Klasa</label>
+                  <div class="class-picker">
+                    <div class="class-pick is-sel">
+                      <div class="class-pick__c">I</div>
+                      <div class="class-pick__l">Ekstra</div>
+                    </div>
+                    <div class="class-pick">
+                      <div class="class-pick__c">II</div>
+                      <div class="class-pick__l">Standard</div>
+                    </div>
+                    <div class="class-pick">
+                      <div class="class-pick__c">III</div>
+                      <div class="class-pick__l">Industrija</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- STEP 4 — active -->
+              <div class="step">
+                <div class="step__head">
+                  <div class="step__num">4</div>
+                  <div class="step__title">Količina i ambalaža</div>
+                </div>
+                <div class="card">
+                  <label class="field__label">Količina (kg)</label>
+                  <input class="field__input field__input--big" value="847" />
+                  <div class="field__row" style="margin-top: 12px;">
+                    <div>
+                      <label class="field__label">Cena RSD/kg</label>
+                      <input class="field__input" value="148,00" />
+                    </div>
+                    <div>
+                      <label class="field__label">Komada</label>
+                      <input class="field__input" value="71" />
+                    </div>
+                  </div>
+                  <label class="field__label" style="margin-top: 10px;">Tip ambalaže</label>
+                  <div class="pkg-picker">
+                    <div class="pkg-pick is-sel">
+                      <div class="pkg-pick__v">12/1</div>
+                      <div class="pkg-pick__d">12 kg</div>
+                    </div>
+                    <div class="pkg-pick">
+                      <div class="pkg-pick__v">6/1</div>
+                      <div class="pkg-pick__d">6 kg</div>
+                    </div>
+                    <div class="pkg-pick">
+                      <div class="pkg-pick__v">2/1</div>
+                      <div class="pkg-pick__d">2 kg</div>
+                    </div>
+                  </div>
+                  <p class="field__hint">Podrazumevano za <strong>višnju</strong>: 12/1</p>
+                </div>
+              </div>
+
+            </div>
+
+            <div class="sticky-bar">
+              <button class="btn btn--secondary">Otkaži</button>
+              <button class="btn btn--primary">
+                Sačuvaj · 125.356 RSD
+              </button>
+            </div>
+          </div>
+</div>
+<div class="scr" id="otkup-3"><!-- Stanje 3 Sačuvano · spremno za štampu -->
+<div class="screen">
+            <div class="statusbar">
+              <span>09:44</span>
+              <span class="indicators">●●●●● <strong>4G</strong> ▮</span>
+            </div>
+            <div class="app-hd">
+              <div class="app-hd__row">
+                <span class="app-hd__role">Otkupac · Oblačina</span>
+                <div class="app-hd__avatar">MP</div>
+              </div>
+              <h1 class="app-hd__title">Novi <em>otkup</em></h1>
+              <div class="app-hd__sub">12. avgust · 09:44</div>
+            </div>
+
+            <div class="toast">
+              <div class="toast__icon">✓</div>
+              <div class="toast__text">
+                <div class="toast__title">Otkup sačuvan</div>
+                <div class="toast__sub">Petar Jovanović · 847 kg · Klasa I</div>
+              </div>
+            </div>
+
+            <div class="app-body" style="padding-top: 100px;">
+
+              <!-- Last otkupni list summary -->
+              <div class="card card--success">
+                <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
+                  <div>
+                    <div style="font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--color-success); font-weight: 700; margin-bottom: 4px;">Otkupni list spreman</div>
+                    <div style="font-family: var(--font-display); font-size: 24px; font-weight: 600; color: var(--forest); letter-spacing: -0.01em; line-height: 1.1;">OL-2847-1842</div>
+                  </div>
+                  <div style="font-family: var(--font-display); font-size: 28px; font-weight: 700; color: var(--accent); letter-spacing: -0.02em;">847<span style="font-size: 14px; color: var(--text-muted); margin-left: 3px;">kg</span></div>
+                </div>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; font-size: 12px; padding-top: 12px; border-top: 1px dashed rgba(46,125,50,0.30);">
+                  <div>
+                    <div style="color: var(--text-muted); font-size: 11px;">Kooperant</div>
+                    <div style="font-weight: 700; color: var(--forest); margin-top: 2px;">Petar Jovanović</div>
+                  </div>
+                  <div>
+                    <div style="color: var(--text-muted); font-size: 11px;">Vrednost</div>
+                    <div style="font-weight: 700; color: var(--forest); margin-top: 2px;">125.356 RSD</div>
+                  </div>
+                  <div>
+                    <div style="color: var(--text-muted); font-size: 11px;">Klasa</div>
+                    <div style="font-weight: 700; color: var(--forest); margin-top: 2px;">I (Ekstra)</div>
+                  </div>
+                  <div>
+                    <div style="color: var(--text-muted); font-size: 11px;">Ambalaža</div>
+                    <div style="font-weight: 700; color: var(--forest); margin-top: 2px;">71 × 12/1</div>
+                  </div>
+                </div>
+              </div>
+
+              <button class="btn btn--accent" style="width: 100%; margin-bottom: 8px;">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 6px;"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+                Štampaj otkupni list
+              </button>
+              <button class="btn btn--secondary" style="width: 100%; margin-bottom: 8px;">Pošalji PDF kooperantu</button>
+              <button class="btn btn--primary" style="width: 100%;">+ Novi otkup</button>
+
+              <div style="margin-top: 18px; padding: 12px; background: var(--surface-2); border-radius: var(--radius-md); display: flex; align-items: center; gap: 10px;">
+                <div style="width: 32px; height: 32px; background: var(--accent); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--cream); font-size: 14px;">↻</div>
+                <div style="flex: 1; font-size: 12px;">
+                  <div style="font-weight: 700; color: var(--forest);">Sinhronizovano</div>
+                  <div style="color: var(--text-muted); margin-top: 1px;">Na serveru · 09:44</div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+</div>
+<div class="scr" id="otkup-4"><!-- Stanje 1 Čeka vozača -->
+<div class="screen">
+            <div class="statusbar">
+              <span>10:12</span>
+              <span class="indicators">●●●●● <strong>4G</strong> ▮</span>
+            </div>
+            <div class="app-hd">
+              <div class="app-hd__row">
+                <span class="app-hd__role">Otkupac · Oblačina</span>
+                <div class="app-hd__avatar">MP</div>
+              </div>
+              <h1 class="app-hd__title">Otprema</h1>
+              <div class="app-hd__sub">Skenirajte vozača da pokrenete utovar</div>
+            </div>
+
+            <div class="app-body">
+
+              <div class="card card--accent" style="text-align: center; padding: 22px 16px;">
+                <div style="width: 64px; height: 64px; background: var(--accent); border-radius: 16px; display: flex; align-items: center; justify-content: center; color: var(--cream); margin: 0 auto 12px;">
+                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h10v10H3zM13 10h5l3 3v3h-8"/><path d="M9 18h5"/><circle cx="7" cy="18" r="2"/><circle cx="17" cy="17" r="2"/></svg>
+                </div>
+                <div style="font-family: var(--font-display); font-size: 22px; font-weight: 600; color: var(--forest); letter-spacing: -0.01em; margin-bottom: 6px;">Vozač pokazuje QR</div>
+                <div style="font-size: 13px; color: var(--text-secondary); line-height: 1.5;">Skenirajte QR kod sa vozačevog telefona. Sistem prepoznaje kamion, kapacitet i preuzima sve blokove koji čekaju.</div>
+              </div>
+
+              <button class="btn btn--primary" style="width: 100%; margin-top: 14px;">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 8px;"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><path d="M14 14h3v3h-3z"/></svg>
+                Skeniraj QR vozača
+              </button>
+              <button class="btn btn--secondary" style="width: 100%; margin-top: 8px;">Izaberi vozača ručno</button>
+
+              <div class="list-head" style="margin-top: 8px;">
+                <span class="list-head__title">Blokovi koji čekaju</span>
+                <span class="list-head__count">18</span>
+              </div>
+
+              <div class="card" style="display: flex; justify-content: space-between; align-items: center;">
+                <div>
+                  <div style="font-family: var(--font-display); font-size: 16px; font-weight: 600; color: var(--forest);">Ukupno čeka utovar</div>
+                  <div style="font-size: 11px; color: var(--text-muted); margin-top: 2px;">9 kooperanata · 18 otkupnih blokova</div>
+                </div>
+                <div style="font-family: var(--font-display); font-size: 26px; font-weight: 700; color: var(--accent); letter-spacing: -0.01em;">12.847<span style="font-size: 12px; color: var(--text-muted); margin-left: 2px;">kg</span></div>
+              </div>
+
+            </div>
+
+            <nav class="bottom-nav">
+              <a class="bottom-nav__item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M6 17v-6M11 17V7M16 17v-4M20 17v-9"/></svg>Pregled</a>
+              <a class="bottom-nav__item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><path d="M14 14h3v3h-3z"/></svg>Otkup</a>
+              <a class="bottom-nav__item is-active"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h10v10H3zM13 10h5l3 3v3h-8"/><path d="M9 18h5"/><circle cx="7" cy="18" r="2"/><circle cx="17" cy="17" r="2"/></svg>Otprema</a>
+              <a class="bottom-nav__item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-7 8-7s8 3 8 7"/></svg>Više</a>
+            </nav>
+          </div>
+</div>
+<div class="scr" id="otkup-5"><!-- Stanje 2 Biranje blokova -->
+<div class="screen">
+            <div class="statusbar">
+              <span>10:14</span>
+              <span class="indicators">●●●●● <strong>4G</strong> ▮</span>
+            </div>
+            <div class="app-hd">
+              <div class="app-hd__row">
+                <span class="app-hd__role">Otprema · Oblačina</span>
+                <div class="app-hd__avatar">MP</div>
+              </div>
+              <h1 class="app-hd__title">Vozač <em>prepoznat</em></h1>
+              <div class="app-hd__sub">Izaberite blokove za utovar</div>
+            </div>
+
+            <div class="app-body">
+
+              <div class="koop-chip">
+                <div class="koop-chip__avatar" style="background: var(--gold); color: var(--forest);">DM</div>
+                <div>
+                  <div class="koop-chip__name">Dušan Milić</div>
+                  <div class="koop-chip__id">Kamion BG-487-MR · 4.500 kg kapacitet</div>
+                </div>
+                <div class="koop-chip__check" style="background: var(--gold); color: var(--forest);">✓</div>
+              </div>
+
+              <div class="list-head">
+                <span class="list-head__title">Izaberi blokove</span>
+                <span class="list-head__count">3 / 18</span>
+              </div>
+
+              <!-- Selected block 1 -->
+              <div class="rec" style="border-color: var(--accent); background: var(--accent-soft);">
+                <div style="position: absolute; top: 12px; right: 12px; width: 22px; height: 22px; background: var(--accent); color: var(--cream); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 12px;">✓</div>
+                <div class="rec__top" style="padding-right: 30px;">
+                  <div>
+                    <div class="rec__koop">Petar Jovanović</div>
+                    <div style="font-size: 11px; color: var(--text-muted); margin-top: 2px;">Višnja · Klasa I</div>
+                  </div>
+                  <div class="rec__time">09:44</div>
+                </div>
+                <div class="rec__main">
+                  <div class="rec__kg">847<span class="u">kg</span></div>
+                  <div class="rec__det">71 × <strong>12/1</strong></div>
+                </div>
+              </div>
+
+              <!-- Selected block 2 -->
+              <div class="rec" style="border-color: var(--accent); background: var(--accent-soft);">
+                <div style="position: absolute; top: 12px; right: 12px; width: 22px; height: 22px; background: var(--accent); color: var(--cream); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 12px;">✓</div>
+                <div class="rec__top" style="padding-right: 30px;">
+                  <div>
+                    <div class="rec__koop">Milica Stanković</div>
+                    <div style="font-size: 11px; color: var(--text-muted); margin-top: 2px;">Šljiva Stenley · Klasa I</div>
+                  </div>
+                  <div class="rec__time">11:22</div>
+                </div>
+                <div class="rec__main">
+                  <div class="rec__kg">1.240<span class="u">kg</span></div>
+                  <div class="rec__det">103 × <strong>12/1</strong></div>
+                </div>
+              </div>
+
+              <!-- Unselected block -->
+              <div class="rec" style="opacity: 0.6;">
+                <div style="position: absolute; top: 12px; right: 12px; width: 22px; height: 22px; background: var(--white); border: 1.5px solid var(--border-strong); border-radius: 50%;"></div>
+                <div class="rec__top" style="padding-right: 30px;">
+                  <div>
+                    <div class="rec__koop">Marko Ilić</div>
+                    <div style="font-size: 11px; color: var(--text-muted); margin-top: 2px;">Jabuka Idared · Klasa I</div>
+                  </div>
+                  <div class="rec__time">13:08</div>
+                </div>
+                <div class="rec__main">
+                  <div class="rec__kg">2.180<span class="u">kg</span></div>
+                  <div class="rec__det">182 × <strong>12/1</strong></div>
+                </div>
+              </div>
+
+            </div>
+
+            <div class="sticky-bar">
+              <button class="btn btn--secondary">Otkaži</button>
+              <button class="btn btn--primary">
+                Utovari · 2.087 kg
+              </button>
+            </div>
+          </div>
+</div>
+<div class="scr" id="otkup-6"><!-- Stanje 3 Zbirna · spremna za potpis -->
+<div class="screen">
+            <div class="statusbar">
+              <span>10:18</span>
+              <span class="indicators">●●●●● <strong>4G</strong> ▮</span>
+            </div>
+            <div class="app-hd">
+              <div class="app-hd__row">
+                <span class="app-hd__role">Otprema · Oblačina</span>
+                <div class="app-hd__avatar">MP</div>
+              </div>
+              <h1 class="app-hd__title">Otpremnica <em>spremna</em></h1>
+              <div class="app-hd__sub">Hladnjača Centar · 12. avgust</div>
+            </div>
+
+            <div class="app-body">
+
+              <div class="card card--success">
+                <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
+                  <div>
+                    <div style="font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--color-success); font-weight: 700; margin-bottom: 4px;">Zbirna otpremnica</div>
+                    <div style="font-family: var(--font-display); font-size: 24px; font-weight: 600; color: var(--forest); letter-spacing: -0.01em; line-height: 1.1;">ZO-2847-184</div>
+                  </div>
+                  <div style="font-family: var(--font-display); font-size: 28px; font-weight: 700; color: var(--accent); letter-spacing: -0.02em;">3.327<span style="font-size: 14px; color: var(--text-muted); margin-left: 3px;">kg</span></div>
+                </div>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; font-size: 12px; padding-top: 12px; border-top: 1px dashed rgba(46,125,50,0.30);">
+                  <div>
+                    <div style="color: var(--text-muted); font-size: 11px;">Vozač</div>
+                    <div style="font-weight: 700; color: var(--forest); margin-top: 2px;">Dušan Milić</div>
+                  </div>
+                  <div>
+                    <div style="color: var(--text-muted); font-size: 11px;">Destinacija</div>
+                    <div style="font-weight: 700; color: var(--forest); margin-top: 2px;">Hl. Centar</div>
+                  </div>
+                  <div>
+                    <div style="color: var(--text-muted); font-size: 11px;">Blokova</div>
+                    <div style="font-weight: 700; color: var(--forest); margin-top: 2px;">3 (3 kooperanta)</div>
+                  </div>
+                  <div>
+                    <div style="color: var(--text-muted); font-size: 11px;">Ambalaža</div>
+                    <div style="font-weight: 700; color: var(--forest); margin-top: 2px;">276 × 12/1</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="card" style="margin-top: 4px;">
+                <div style="font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 8px;">Sledljivost · automatski</div>
+                <div style="font-size: 12.5px; line-height: 1.6; color: var(--text-secondary);">
+                  Roba povezana sa <strong style="color: var(--forest);">3 parcele</strong>, tretmani i karenca uneti u izveštaj.
+                  Audit fajl je spreman za GGAP kontrolu — bez ručnog skupljanja.
+                </div>
+              </div>
+
+              <button class="btn btn--accent" style="width: 100%; margin-top: 14px;">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 6px;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>
+                Potpis vozača
+              </button>
+              <button class="btn btn--secondary" style="width: 100%; margin-top: 8px;">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 6px;"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+                Štampaj na licu mesta
+              </button>
+              <button class="btn btn--secondary" style="width: 100%; margin-top: 8px;">Pošalji PDF na hladnjaču</button>
+
+            </div>
+          </div>
+</div>
+<div class="scr" id="otkup-7"><!-- Pregled / Danas Stats + segmenti -->
+<div class="screen">
+            <div class="statusbar">
+              <span>14:18</span>
+              <span class="indicators">●●●●● <strong>4G</strong> ▮</span>
+            </div>
+
+            <div class="pregled-hero">
+              <div class="pregled-hero__row">
+                <span class="app-hd__role">Pregled otkupa</span>
+                <div class="app-hd__avatar">MP</div>
+              </div>
+              <h1 class="pregled-hero__title">Danas</h1>
+              <div class="pregled-hero__sub">Sreda, 12. avgust · 14:18</div>
+
+              <div class="stats-row">
+                <div class="stat stat--big">
+                  <div class="stat__val stat__val--big">12.847<span class="u">kg</span></div>
+                  <div class="stat__lbl">Ukupno danas</div>
+                </div>
+                <div class="stat">
+                  <div class="stat__val">18</div>
+                  <div class="stat__lbl">Otkupa</div>
+                </div>
+                <div class="stat">
+                  <div class="stat__val">9</div>
+                  <div class="stat__lbl">Kooperanata</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="pills">
+              <button class="pill is-active">Danas</button>
+              <button class="pill">Juče</button>
+              <button class="pill">Sve</button>
+              <button class="pill">Bez vozača · 3</button>
+              <button class="pill">Problemi</button>
+            </div>
+
+            <div class="app-body">
+
+              <div class="list-head">
+                <span class="list-head__title">Bez vozača</span>
+                <span class="list-head__count">3</span>
+              </div>
+
+              <div class="rec">
+                <div class="rec__top">
+                  <div>
+                    <div class="rec__koop">Petar Jovanović</div>
+                    <div style="font-size: 11px; color: var(--text-muted); margin-top: 2px;">Višnja Oblačinska · Klasa I</div>
+                  </div>
+                  <div class="rec__time">09:44</div>
+                </div>
+                <div class="rec__main">
+                  <div class="rec__kg">847<span class="u">kg</span></div>
+                  <div class="rec__det">71 × <strong>12/1</strong><br>Parcela 3 · Kat. 1247/2</div>
+                </div>
+                <div class="rec__bottom">
+                  <span class="rec__badge rec__badge--warn">Bez vozača</span>
+                  <div class="rec__val">125.356 RSD</div>
+                </div>
+              </div>
+
+              <div class="rec">
+                <div class="rec__top">
+                  <div>
+                    <div class="rec__koop">Milica Stanković</div>
+                    <div style="font-size: 11px; color: var(--text-muted); margin-top: 2px;">Šljiva Stenley · Klasa I</div>
+                  </div>
+                  <div class="rec__time">11:22</div>
+                </div>
+                <div class="rec__main">
+                  <div class="rec__kg">1.240<span class="u">kg</span></div>
+                  <div class="rec__det">103 × <strong>12/1</strong><br>Parcela 1 · Kat. 893/4</div>
+                </div>
+                <div class="rec__bottom">
+                  <span class="rec__badge rec__badge--warn">Bez vozača</span>
+                  <div class="rec__val">183.520 RSD</div>
+                </div>
+              </div>
+
+              <div class="list-head">
+                <span class="list-head__title">Sa vozačem</span>
+                <span class="list-head__count">15</span>
+              </div>
+
+              <div class="rec">
+                <div class="rec__top">
+                  <div>
+                    <div class="rec__koop">Marko Ilić</div>
+                    <div style="font-size: 11px; color: var(--text-muted); margin-top: 2px;">Jabuka Idared · Klasa I</div>
+                  </div>
+                  <div class="rec__time">13:08</div>
+                </div>
+                <div class="rec__main">
+                  <div class="rec__kg">2.180<span class="u">kg</span></div>
+                  <div class="rec__det">182 × <strong>12/1</strong><br>Vozač: <strong>Dušan M.</strong> · Hl. Centar</div>
+                </div>
+                <div class="rec__bottom">
+                  <span class="rec__badge rec__badge--ok">Dodeljen</span>
+                  <div class="rec__val">261.600 RSD</div>
+                </div>
+              </div>
+            </div>
+
+            <nav class="bottom-nav">
+              <a class="bottom-nav__item is-active">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M6 17v-6M11 17V7M16 17v-4M20 17v-9"/></svg>
+                Pregled
+              </a>
+              <a class="bottom-nav__item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><path d="M14 14h3v3h-3z"/></svg>
+                Otkup
+              </a>
+              <a class="bottom-nav__item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h10v10H3zM13 10h5l3 3v3h-8"/><path d="M9 18h5"/><circle cx="7" cy="18" r="2"/><circle cx="17" cy="17" r="2"/></svg>
+                Otprema
+              </a>
+              <a class="bottom-nav__item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-7 8-7s8 3 8 7"/></svg>
+                Više
+              </a>
+            </nav>
+          </div>
+</div>
+<div class="scr" id="otkup-8"><!-- Potpis kooperanta Otkupni blok · potpis -->
+<div class="screen">
+            <div class="statusbar"><span>09:43</span><span class="indicators">●●●●● <strong>4G</strong> ▮</span></div>
+            <div class="app-hd">
+              <div class="app-hd__row"><span class="app-hd__role">Otkup · Oblačina</span><div class="app-hd__avatar">MP</div></div>
+              <h1 class="app-hd__title">Potpis <em>kooperanta</em></h1>
+              <div class="app-hd__sub">Pokažite telefon kooperantu na potpis</div>
+            </div>
+            <div class="app-body" style="padding-bottom:96px">
+              <div class="card">
+                <div style="display:flex;justify-content:space-between;align-items:baseline;border-bottom:1px dashed var(--border);padding-bottom:10px;margin-bottom:6px">
+                  <div style="font-family:var(--font-display);font-size:19px;font-weight:600;color:var(--forest)">Otkupni blok</div>
+                  <div style="font-family:var(--font-display);font-size:13px;color:var(--text-muted)">OB-2847-12</div>
+                </div>
+                <div style="display:flex;align-items:center;gap:10px;padding:8px 0">
+                  <div style="width:34px;height:34px;border-radius:9px;background:var(--gold);color:var(--forest);display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:700;font-size:15px">PJ</div>
+                  <div><div style="font-size:13px;font-weight:700;color:var(--forest)">Petar Jovanović</div><div style="font-size:11px;color:var(--text-muted)">K-2847 · Oblačina</div></div>
+                </div>
+                <div style="display:flex;justify-content:space-between;padding:7px 0;border-top:1px dashed var(--border);font-size:13px"><span style="color:var(--text-secondary)">Višnja · <strong style="color:var(--forest)">Klasa I</strong></span><span style="font-family:var(--font-display);font-weight:700;color:var(--forest);font-size:15px">847 kg</span></div>
+                <div style="display:flex;justify-content:space-between;padding:7px 0;border-top:1px dashed var(--border);font-size:13px"><span style="color:var(--text-secondary)">Cena · ambalaža</span><span style="font-family:var(--font-display);font-weight:700;color:var(--forest);font-size:15px">148 RSD · 71×12/1</span></div>
+                <div style="margin-top:10px;padding:12px 14px;background:var(--forest);border-radius:10px;display:flex;justify-content:space-between;align-items:baseline">
+                  <span style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);font-weight:700">Iznos</span>
+                  <span style="font-family:var(--font-display);font-size:24px;font-weight:700;color:var(--cream);letter-spacing:-.02em">125.356<span style="font-size:12px;opacity:.6"> RSD</span></span>
+                </div>
+              </div>
+              <div style="font-size:10px;letter-spacing:.10em;text-transform:uppercase;color:var(--text-muted);font-weight:700;margin:8px 2px 8px">Potpis kooperanta</div>
+              <div style="height:128px;border:1.5px solid var(--accent);border-radius:12px;background:var(--accent-soft);position:relative">
+                <svg viewBox="0 0 220 80" preserveAspectRatio="none" style="position:absolute;inset:12px;width:calc(100% - 24px);height:calc(100% - 24px)"><path d="M6,52 Q30,10 54,46 T104,46 Q132,14 168,44 T214,40" stroke="var(--forest)" stroke-width="2.4" fill="none" stroke-linecap="round"/></svg>
+                <div style="position:absolute;top:8px;right:8px;width:22px;height:22px;background:var(--accent);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800">✓</div>
+                <div style="position:absolute;left:0;right:0;bottom:8px;text-align:center;font-size:11px;color:var(--text-muted)">Petar Jovanović · 12.08. 09:43</div>
+              </div>
+            </div>
+            <div style="position:absolute;left:12px;right:12px;bottom:12px;display:grid;grid-template-columns:1fr 1.5fr;gap:8px;padding:10px;background:rgba(247,244,238,.96);backdrop-filter:blur(14px);border-radius:14px;border:1px solid var(--border);box-shadow:var(--shadow-sticky)">
+              <button class="btn btn--secondary">Nazad</button>
+              <button class="btn btn--accent">Potvrdi i potpiši →</button>
+            </div>
+          </div>
+</div>
+
+<script>
+(function(){
+  function show(){var id=(location.hash||'').slice(1);var all=document.querySelectorAll('.scr');var t=null;all.forEach(function(s){s.classList.remove('active')});if(id){t=document.getElementById(id)}if(!t&&all.length){t=all[0]}if(t){t.classList.add('active')}fit()}
+  function fit(){var s=window.innerWidth/380;document.querySelectorAll('.scr').forEach(function(el){el.style.transform='scale('+s+')'})}
+  window.addEventListener('hashchange',show);window.addEventListener('resize',fit);document.addEventListener('DOMContentLoaded',show);show();
+})();
+</script>
+</body></html>
