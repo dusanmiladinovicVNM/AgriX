@@ -1,0 +1,27 @@
+/* AgriX premium homepage — v2 overrides */
+.hero-product{height:610px;position:relative;border:1px solid rgba(255,255,255,.14);background:linear-gradient(155deg,rgba(255,255,255,.055),rgba(255,255,255,.012));overflow:hidden;padding:58px 26px 28px}
+.hero-product:before{content:"";position:absolute;inset:58px 0 0;background:radial-gradient(circle at 70% 26%,rgba(184,137,75,.13),transparent 28%),linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);background-size:auto,56px 56px,56px 56px;pointer-events:none}
+.hero-product__top{position:absolute;top:0;left:0;right:0;height:58px;padding:0 22px;border-bottom:1px solid rgba(255,255,255,.1);display:flex;justify-content:space-between;align-items:center;font-size:8px;letter-spacing:.16em;color:rgba(255,255,255,.36)}
+.hero-product__desktop{position:relative;height:390px;margin-top:18px;background:#f4f2eb;border:1px solid rgba(255,255,255,.12);box-shadow:0 34px 80px rgba(0,0,0,.42);overflow:hidden;transform:perspective(1100px) rotateY(-3deg) rotateX(1deg);transform-origin:left center}
+.hero-product__desktop:before{content:"";position:absolute;z-index:2;inset:0;box-shadow:inset 0 0 0 1px rgba(10,12,10,.08);pointer-events:none}
+.hero-product__desktop img{width:100%;height:100%;object-fit:cover;object-position:top left}
+.hero-product__phone{position:absolute;z-index:3;right:16px;bottom:38px;width:158px;height:318px;border:8px solid #282d28;border-radius:30px;background:#080a08;box-shadow:0 35px 70px rgba(0,0,0,.55);overflow:hidden;transform:rotate(2.5deg)}
+.hero-product__phone-notch{position:absolute;z-index:5;top:7px;left:50%;transform:translateX(-50%);width:58px;height:13px;border-radius:999px;background:#080a08}
+.hero-product__phone img{width:100%;height:100%;object-fit:cover;object-position:top center;background:#fff}
+.hero-product__signal{position:absolute;left:26px;right:202px;bottom:25px;display:grid;grid-template-columns:auto 1fr;column-gap:9px;align-items:center;font-size:8px;letter-spacing:.13em;color:rgba(255,255,255,.38)}
+.hero-product__signal i{grid-row:1/3;width:7px;height:7px;border-radius:50%;background:#7f9b73;box-shadow:0 0 0 6px rgba(127,155,115,.08)}
+.hero-product__signal strong{grid-column:2;display:block;margin-top:5px;font-size:12px;letter-spacing:0;font-weight:400;color:rgba(255,255,255,.78)}
+.extension{padding:clamp(90px,10vw,150px) 0;border-top:1px solid var(--line)}
+.extension__inner{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(50px,8vw,120px);align-items:end}
+.extension h2{font-size:clamp(43px,5vw,76px);font-weight:300;line-height:1;letter-spacing:-.055em;max-width:850px}
+.extension__copy p{font-size:17px;line-height:1.75;color:var(--muted);max-width:570px;margin-bottom:28px}
+.audience{padding:clamp(100px,11vw,165px) 0}
+.audience__head{display:grid;grid-template-columns:1fr 2fr}
+.audience__head h2{grid-column:1/-1;font-size:clamp(48px,5.6vw,88px);font-weight:300;line-height:.98;letter-spacing:-.055em;max-width:1100px}
+.audience__grid{display:grid;grid-template-columns:repeat(4,1fr);margin-top:90px;border-top:1px solid var(--line);border-left:1px solid var(--line)}
+.audience__grid article{min-height:300px;padding:30px 28px 36px;border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
+.audience__grid b{font-size:9px;letter-spacing:.14em;color:var(--amber)}
+.audience__grid h3{font-size:25px;font-weight:400;letter-spacing:-.035em;margin-top:88px}
+.audience__grid p{font-size:13px;line-height:1.7;color:var(--muted);margin-top:14px}
+@media(max-width:980px){.hero-product{height:540px}.hero-product__desktop{height:340px}.extension__inner{grid-template-columns:1fr}.audience__head{grid-template-columns:1fr}.audience__grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:640px){.hero-product{height:440px;padding:58px 14px 18px}.hero-product__top{padding:0 14px}.hero-product__top span:last-child{display:none}.hero-product__desktop{height:270px;margin-top:12px;transform:none}.hero-product__phone{width:104px;height:214px;border-width:5px;border-radius:22px;right:8px;bottom:30px}.hero-product__phone-notch{width:38px;height:9px;top:5px}.hero-product__signal{left:14px;right:122px;bottom:19px}.hero-product__signal strong{font-size:10px}.extension h2{font-size:43px}.audience__grid{grid-template-columns:1fr;margin-top:60px}.audience__grid article{min-height:230px}.audience__grid h3{margin-top:52px}}
